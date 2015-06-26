@@ -5,10 +5,16 @@ package main.scala
  */
 class Game {
   
-  def token(strings: String*): Seq[String] = {
+  def main(args: Array[String]) {
+    
+  }
+  
+  def change1(strings: String*): Seq[String] = {
     strings.map((s:String) => s.toLowerCase())
   }
   
-  
+  def change2(string: String) = {
+    string.toLowerCase()
+  }
   
 }
