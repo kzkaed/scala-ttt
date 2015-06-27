@@ -1,11 +1,9 @@
 package ai
 
-/**
- * @author kristin-8thlight
- */
 class NegaMax {
   
-  def nextPlayer(player: String): String = {
-    player
+  def nextPlayer(player: Char): Char = {
+    if (player == 'x') 'o' else 'x'  
   }
+  
 }

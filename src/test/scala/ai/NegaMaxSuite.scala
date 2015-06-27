@@ -9,12 +9,9 @@ class NegaMaxSuite extends FunSuite {
   val ai = new NegaMax
   
   test("sets next player") {
-    val player = "o"
+    val player = 'o'
     
-  assert(ai.nextPlayer(player) === "o")
-    
-    
-    
+  assert(ai.nextPlayer(player) === 'x')   
   }
   
 }
