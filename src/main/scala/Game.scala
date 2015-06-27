@@ -9,12 +9,12 @@ class Game {
     
   }
   
-  def change1(strings: String*): Seq[String] = {
-    strings.map((s:String) => s.toLowerCase())
+  def change1(words: String*): Seq[String] = {
+    words.map((s:String) => s.toLowerCase())
   }
   
-  def change2(string: String) = {
-    string.toLowerCase()
+  def change2(letters: String): String = {
+    letters.toLowerCase()
   }
   
 }
