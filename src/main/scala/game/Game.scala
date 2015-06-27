@@ -7,9 +7,11 @@ class Game {
    }
    
    def takeTurn(mark: Char, move: Char, board: List[Char]): List[Char] = {
-      board.updated(move.toInt - 1 , mark)
-     //List('x','2','3','4','5','6','7','8','9')
-  
+      board.updated(moveNumber(move) , mark)
+   }
+   
+   def moveNumber (move: Char): Int = {
+     move.toInt - 1
    }
    
    
