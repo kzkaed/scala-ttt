@@ -1,13 +1,13 @@
-package game
+package base
 
-class Game {
-
-   def board: List[String] = {
-     List("1","2","3","4","5","6","7","8","9")
-   }
-   
+class Game(val board: List[String]) {
+  
    def takeTurn(mark: String, move: String, board: List[String]): List[String] = {
       board.updated(moveNumber(move) , mark)
+   }
+   
+   def end(): Boolean = {
+     true
    }
      
    private def moveNumber (move: String): Int = {

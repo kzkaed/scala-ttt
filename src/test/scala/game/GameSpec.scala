@@ -1,4 +1,4 @@
-package game
+package base
 
 import org.scalatest._
 import org.junit.runner.RunWith
@@ -6,7 +6,8 @@ import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class GameSpec extends FunSpec {
-  val game = new Game
+  val board = List("1","2","3","4","5","6","7","8","9")
+  val game = new Game(board: List[String])
   
   describe("game board"){
     it("should have a board") {
@@ -35,6 +36,9 @@ class GameSpec extends FunSpec {
        assert(game.takeTurn(mark, move, boardBeforeTurn) == boardAfterTurn)
     }
     
+    it("should end if winner"){
+      assert(game.end == true)
+    }
     
     
   
