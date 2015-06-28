@@ -1,9 +1,9 @@
 package ai
 
-class NegaMax {
+class Negamax {
   
-  def nextPlayer(player: Char): Char = {
-    if (player == 'x') 'o' else 'x'  
+  def switchPlayer(player: String): String = {
+    if (player == "x") "o" else "x"  
   }
   
 }
