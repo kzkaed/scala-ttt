@@ -4,7 +4,7 @@ object Main {
     println("start")
    
     val userInterface = new ui.Console
-    val board = List[String]("1","2","3","4","5","6","7","8","9")
+    val board = Array[String]("1","2","3","4","5","6","7","8","9")
     val game = new base.Game(board)
     val aIEngine = new player.Computer
     

@@ -7,5 +7,9 @@ class Console extends UserInterface {
    
   }
   
+  def goodbye(): Unit = {
+    println("goodbye")
+  }
+  
   
 }

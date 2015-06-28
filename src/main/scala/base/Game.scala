@@ -1,9 +1,11 @@
 package base
 
-class Game(val board: List[String]) {
+class Game(val board: Array[String]) {
   
-   def takeTurn(mark: String, move: String, board: List[String]): List[String] = {
-      board.updated(moveNumber(move) , mark)
+   def takeTurn(mark: String, move: String): Array[String] = {
+     val selection = moveNumber(move)
+     board.update(selection, mark)
+     board
    }
    
    def end(): Boolean = {

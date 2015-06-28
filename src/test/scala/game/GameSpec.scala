@@ -6,34 +6,34 @@ import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class GameSpec extends FunSpec {
-  val board = List("1","2","3","4","5","6","7","8","9")
-  val game = new Game(board: List[String])
+  val board = Array("1","2","3","4","5","6","7","8","9")
+  val game = new Game(board: Array[String])
   
   describe("game board"){
     it("should have a board") {
-      val defaultBoard = List("1","2","3","4","5","6","7","8","9")
+      val defaultBoard = Array("1","2","3","4","5","6","7","8","9")
       
-      assert(game.board == defaultBoard) 
+      assert(game.board === defaultBoard) 
     }
   }
   
   describe("game rules"){
     it("should take a turn with an x"){
-      val boardBeforTurn = List("1","2","3","4","5","6","7","8","9")
+      val boardBeforTurn = Array("1","2","3","4","5","6","7","8","9")
       val move = "1"
       val mark = "x"
-      val boardAfterTurn = List("x","2","3","4","5","6","7","8","9")
+      val boardAfterTurn = Array("x","2","3","4","5","6","7","8","9")
       
-      assert(game.takeTurn(mark, move, boardBeforTurn) == boardAfterTurn )
+      assert(game.takeTurn(mark, move) === boardAfterTurn )
     }
     
     it("should take another turn with an o"){
-       val boardBeforeTurn = List("x","2","3","4","5","6","7","8","9")
+       val boardBeforeTurn = Array("x","2","3","4","5","6","7","8","9")
        val move = "2"
        val mark = "o"
-       val boardAfterTurn = List("x","o","3","4","5","6","7","8","9")
+       val boardAfterTurn = Array("x","o","3","4","5","6","7","8","9")
        
-       assert(game.takeTurn(mark, move, boardBeforeTurn) == boardAfterTurn)
+       assert(game.takeTurn(mark, move) === boardAfterTurn)
     }
     
     it("should end if winner"){

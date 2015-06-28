@@ -11,9 +11,10 @@ class Runner(game: Game,
       val currentMark = "x"
       val currentMove = "1"
       val currentBoard = game.board
-      game.takeTurn(currentMark, currentMove, currentBoard)
-      
+      game.takeTurn(currentMark, currentMove)
     }
-    
+    userInterface.goodbye()  
   }
+  
+  
 }
