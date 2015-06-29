@@ -7,4 +7,5 @@ trait MockUserInterface extends UserInterface {
   
   override def print(s: String) = messages = messages :+ s
  
+ 
 }

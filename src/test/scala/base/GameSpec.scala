@@ -37,9 +37,18 @@ class GameSpec extends FunSpec {
     }
     
     it("should end if winner"){
-      assert(game.end == true)
+      assert(game.isEnd == true)
     }
     
+    it("should be a draw if no win"){
+      assert(game.isDraw() == false)
+    }
+    
+    it("should be a win if 3 in a row"){
+      assert(game.isWin()==true)
+    }
+    
+       
     
   
   
