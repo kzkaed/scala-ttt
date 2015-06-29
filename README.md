@@ -1,18 +1,26 @@
-# README #
 
-private repository for scala project
 
-### set up ###
+##Scala Tic Tac Toe
 
-  -clone
-  -intall java
-  -install sbt
-  -install scala
 
-  -cd to dir
-  
-  #To test:
-  -sbt test
-  
-  #To run:
-  -sbt run  
+
+##Setup
+
+    $ install java (see oracle site)
+    $ install scala (brew install scala or manually)
+    $ install sbt (brew install sbt or manually)
+    
+    $ clone
+    $ cd ttt
+    $ sbt test (compile and run tests)
+
+##To play:
+
+To run Human to Human game:
+
+    $ sbt run
+
+##To test:
+
+    $ sbt test 
+

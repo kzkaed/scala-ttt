@@ -1,6 +1,0 @@
-package player
-
-
-trait Player {
-  
-}

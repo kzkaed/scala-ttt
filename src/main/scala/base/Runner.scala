@@ -3,8 +3,8 @@ package base
 
 class Runner(game: Game, 
              userInterface: ui.UserInterface, 
-             player1: player.Player, 
-             player2: player.Player){
+             player1: players.Player, 
+             player2: players.Player){
   
   def run() : Unit = {
     while(!game.end){

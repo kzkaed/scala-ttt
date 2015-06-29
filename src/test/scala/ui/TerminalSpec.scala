@@ -5,18 +5,13 @@ import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class ConsoleSpec extends FunSpec{
-  val console = new Console
+class TerminalSpec extends FunSpec{
+  val console = new Terminal
  
-  describe("console"){
+  describe("terminal"){
     it("should print a board to the screen"){
     
     }
-    
-    
-    
-    
-   }
   
- 
+   }
 }

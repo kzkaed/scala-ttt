@@ -1,18 +1,17 @@
-package player
+package ai
 
 import org.scalatest._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
-
 @RunWith(classOf[JUnitRunner])
-class ComputerSpec extends FunSpec {
-  val ai = new Computer
-  
+class MinimaxSpec extends FunSpec {
+  val ai = new Minimax
+
   it("should switch players") {
-    val player = "o"
-    
-    assert(ai.switchPlayer(player) === "x")   
+    val playerMark = "o"
+
+    assert(ai.switchPlayerMark(playerMark) === "x")
   }
-  
+
 }
