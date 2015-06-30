@@ -14,9 +14,17 @@ class Runner(val game: GameRules,
     userInterface.displayBoard(game.getCurrentBoard())
     
     //while(!game.isEnd){   
-      val moveSelection = player1.selectMove(game)
+      var moveSelection = player1.selectMove(game)
       game.takeTurn(moveSelection, player1.getPlayerMark())
-      val board = game.getCurrentBoard()
+      var board = game.getCurrentBoard()
+      userInterface.displayBoard(board)
+      
+      moveSelection = player2.selectMove(game)
+      game.takeTurn(moveSelection, player2.getPlayerMark())
+      board = game.getCurrentBoard()
+      userInterface.displayBoard(board)
+      
+      
       
     //}
     userInterface.goodbye()  
