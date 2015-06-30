@@ -6,9 +6,9 @@ class Game(val board: Array[String]) extends GameRules {
     board
   }
   
-   def takeTurn(mark: String, move: String): Array[String] = {
-     val selection = moveNumber(move)
-     board.update(selection, mark)
+   def takeTurn(moveSelection: String, playerMark: String): Array[String] = {
+     val selection = getNumber(moveSelection)
+     board.update(selection, playerMark)
      board
    }
    
@@ -28,8 +28,8 @@ class Game(val board: Array[String]) extends GameRules {
      
    }
    
-   private def moveNumber (move: String): Int = {
-     move.toInt - 1
+   private def getNumber (moveSelection: String): Int = {
+     moveSelection.toInt - 1
    }
    
    

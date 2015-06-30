@@ -1,10 +1,13 @@
 package players
-import base.Game
+import base.GameRules
 
-class Human extends Player {
+class Human (playerMark: String) extends Player {
   
-  def determineMove(game: Game): String = {
+  def selectMove(game: GameRules): String = {
     ""
+  }
+  def getPlayerMark(): String = {
+    playerMark
   }
   
 }

@@ -1,9 +1,9 @@
 package players
-import base.Game
+import base._
 import ai._
 
 trait Player{
   
-  def determineMove(game: Game): String 
-  
+  def selectMove(game: GameRules): String 
+  def getPlayerMark():String
 }

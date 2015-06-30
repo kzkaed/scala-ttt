@@ -20,20 +20,20 @@ class GameSpec extends FunSpec {
   describe("game rules"){
     it("should take a turn with an x"){
       val boardBeforTurn = Array("1","2","3","4","5","6","7","8","9")
-      val move = "1"
-      val mark = "x"
+      val moveSelection = "1"
+      val playerMark = "x"
       val boardAfterTurn = Array("x","2","3","4","5","6","7","8","9")
       
-      assert(game.takeTurn(mark, move) === boardAfterTurn )
+      assert(game.takeTurn(moveSelection, playerMark) === boardAfterTurn )
     }
     
     it("should take another turn with an o"){
-       val boardBeforeTurn = Array("x","2","3","4","5","6","7","8","9")
-       val move = "2"
-       val mark = "o"
-       val boardAfterTurn = Array("x","o","3","4","5","6","7","8","9")
+      val boardBeforeTurn = Array("x","2","3","4","5","6","7","8","9")
+      val moveSelection = "2"
+      val playerMark = "o"
+      val boardAfterTurn = Array("x","o","3","4","5","6","7","8","9")
        
-       assert(game.takeTurn(mark, move) === boardAfterTurn)
+      assert(game.takeTurn(moveSelection, playerMark) === boardAfterTurn )
     }
     
     it("should end if winner"){

@@ -1,8 +1,9 @@
 package ai
+import base.GameRules
 
 class Minimax extends Intelligence {
   
-  def getBestMove(game: base.Game): String = {
+  def getBestMove(game: GameRules, playerMark: String): String = {
     "9"
   }
   

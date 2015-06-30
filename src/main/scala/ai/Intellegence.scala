@@ -1,6 +1,6 @@
 package ai
-import base.Game
+import base.GameRules
 
 trait Intelligence {
-  def getBestMove(game: Game): String 
+  def getBestMove(game: GameRules, playerMark: String): String 
 }

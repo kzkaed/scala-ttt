@@ -1,12 +1,16 @@
 package players
-import base.Game
+import base.GameRules
 import ai._
 
-class Computer(engine: Intelligence) extends Player {
+class Computer(playerMark: String, engine: Intelligence) extends Player {
   
-  def determineMove(game: Game): String = {
-    val move = engine.getBestMove(game)
+  def selectMove(game: GameRules): String = {
+    val move = engine.getBestMove(game, playerMark)
     move
+  }
+  
+  def getPlayerMark() : String = {
+    playerMark
   }
  
   

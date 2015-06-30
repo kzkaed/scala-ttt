@@ -1,11 +1,28 @@
 package mocks
 import ui.UserInterface
 
-trait MockUserInterface extends UserInterface {
+class MockUserInterface extends UserInterface {
+  var prepareCalled: Boolean = false
+  var displayBoardCalled: Boolean = false
   
-  var messages: Seq[String] = Seq()
+  def goodbye(): Unit = {
+    
+  }
+  def displayBoard(board: Array[String]): Unit = {
+    displayBoardCalled = true
+  }
   
-  override def print(s: String) = messages = messages :+ s
- 
+  def prepare(): Unit = {
+    prepareCalled = true
+  }
+  
+  //expectations
+  def isPrepareCalled(): Boolean = {
+    prepareCalled
+  }
+  
+  def isDisplayBoardCalled(): Boolean = {
+     displayBoardCalled
+  }
  
 }

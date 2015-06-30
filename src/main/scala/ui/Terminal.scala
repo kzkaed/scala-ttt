@@ -2,9 +2,12 @@ package ui
 
 class Terminal extends UserInterface {
   
-  def display(gameboard: base.Game) = {
-    println("this will be the board")
-   
+  def prepare(): Unit = {
+    println("Welcome")
+  }
+  
+  def displayBoard(board: Array[String]) = {
+    println(board.toString())
   }
   
   def goodbye(): Unit = {

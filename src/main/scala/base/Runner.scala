@@ -10,13 +10,15 @@ class Runner(val game: GameRules,
              val player2: Player){
   
   def run() : Unit = {
+    userInterface.prepare()
+    userInterface.displayBoard(game.getCurrentBoard())
     
-    while(!game.isEnd){
-      val currentMark = "x"
-      val currentMove = "1"
-      val currentBoard = game.getCurrentBoard()
-      game.takeTurn(currentMark, currentMove)
-    }
+    //while(!game.isEnd){   
+      val moveSelection = player1.selectMove(game)
+      game.takeTurn(moveSelection, player1.getPlayerMark())
+      val board = game.getCurrentBoard()
+      
+    //}
     userInterface.goodbye()  
   }
  
