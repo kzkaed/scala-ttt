@@ -48,6 +48,11 @@ class GameSpec extends FunSpec {
       assert(game.isWin()==true)
     }
     
+    it("has available moves") {
+      game.board = Array("x","o","x","o","5","6","7","8","9")
+      assert(game.availableMoves === Array("5", "6", "7", "8", "9"))
+    }
+    
        
     
   

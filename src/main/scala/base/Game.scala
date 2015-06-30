@@ -1,6 +1,6 @@
 package base
 
-class Game(val board: Array[String]) extends GameRules {
+class Game(var board: Array[String]) extends GameRules {
   
   def getCurrentBoard(): Array[String] = {
     board
@@ -28,9 +28,17 @@ class Game(val board: Array[String]) extends GameRules {
      
    }
    
+   def availableMoves(): Array[String] = {
+   val result = board.clone().toSeq flatMap { cell => 
+     if (cell != "x" && cell != "o") Seq(cell)
+     else Seq()}
+   result.toArray
+   }
+   
    private def getNumber (moveSelection: String): Int = {
      moveSelection.toInt - 1
    }
+   
    
    
    
