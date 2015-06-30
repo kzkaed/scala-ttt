@@ -1,6 +1,6 @@
 package ui
 
-class MTerminal extends UserInterface with OutputInput {
+class TConsole extends UserInterface with OutputInput {
   val messageList = List("Welcome to Scala Tic Tac Toe",
                          "Goodbye")
   

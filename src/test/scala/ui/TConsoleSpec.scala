@@ -8,10 +8,10 @@ import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class MTerminalSpec extends FunSpec{
+class TConsoleSpec extends FunSpec{
   val board = Array[String]("1","2","3","4","5","6","7","8","9")
   val game = new Game(board)
-  val terminal = new MTerminal with MockIO
+  val terminal = new TConsole with MockIO
   val messageList = List("Welcome to Scala Tic Tac Toe",
                          "Goodbye")
   
@@ -30,7 +30,7 @@ class MTerminalSpec extends FunSpec{
       terminal.displayBoard(board)
       assert(terminal.messages.contains(board(0) + " | " + board(1) + " | " + board(2) + "\n" +
                                         board(3) + " | " + board(4) + " | " + board(5) + "\n" +
-                                        board(6) + " | " + board(7) + " | " + board(8) +"\n"))
+                                        board(6) + " | " + board(7) + " | " + board(8) + "\n"))
     }
     
     it("prompts player and reads in a cell number for move selection"){
