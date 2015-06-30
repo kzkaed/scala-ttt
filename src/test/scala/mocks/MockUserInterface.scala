@@ -8,9 +8,9 @@ class MockUserInterface extends UserInterface {
   var cellSelection = "1"
   
   
-  def goodbye(): Unit = {
-    
+  def goodbye(): Unit = {  
   }
+  
   def displayBoard(board: Array[String]): Unit = {
     displayBoardCalled = true
   }

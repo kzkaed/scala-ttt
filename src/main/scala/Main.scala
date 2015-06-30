@@ -6,7 +6,7 @@ import base._
 object Main {
   def main(args: Array[String]): Unit = {
       
-    val userInterface = new Terminal
+    val userInterface = new MTerminal
     val board = Array[String]("1","2","3","4","5","6","7","8","9")
     val game = new Game(board)
     val engine = new Minimax
