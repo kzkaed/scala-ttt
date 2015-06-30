@@ -4,6 +4,9 @@ import ui.UserInterface
 class MockUserInterface extends UserInterface {
   var prepareCalled: Boolean = false
   var displayBoardCalled: Boolean = false
+  var cellNumberCalled: Boolean = false
+  var cellSelection = "1"
+  
   
   def goodbye(): Unit = {
     
@@ -16,6 +19,11 @@ class MockUserInterface extends UserInterface {
     prepareCalled = true
   }
   
+   def readCellNumber(): String = {
+    cellNumberCalled = true
+    cellSelection
+  }
+  
   //expectations
   def isPrepareCalled(): Boolean = {
     prepareCalled
@@ -24,5 +32,11 @@ class MockUserInterface extends UserInterface {
   def isDisplayBoardCalled(): Boolean = {
      displayBoardCalled
   }
+  
+  def isReadCellNumberCalled(): Boolean = {
+    cellNumberCalled
+  }
+  
+ 
  
 }

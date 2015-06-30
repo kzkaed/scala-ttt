@@ -27,5 +27,4 @@ class MockPlayer extends Player{
   def isGetPlayerMarkCalled() : Boolean = {
     getPlayerMarkCalled 
   }
-  
 }

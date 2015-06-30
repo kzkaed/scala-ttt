@@ -70,8 +70,9 @@ class RunnerSpec extends FunSpec {
      runner.run()
      assert(game.takeTurn(moveSelection, playerMark) === boardResult)
      assert(game.isTakeTurnCalled() == true)
-     
     }
+    
+    
     
     
 }

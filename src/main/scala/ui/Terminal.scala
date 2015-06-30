@@ -1,18 +1,26 @@
 package ui
 
-class Terminal extends UserInterface {
+class Terminal extends UserInterface with OutputInput {
+  val messageList = List("Welcome to Scala Tic Tac Toe",
+                         "Goodbye")
   
   def prepare(): Unit = {
-    println("Welcome")
+    print(messageList(0))
   }
   
   def displayBoard(board: Array[String]) = {
-    println(board.toString())
+    print(board.toString())
   }
   
   def goodbye(): Unit = {
-    println("goodbye")
+    print(messageList(1))
   }
+  
+  def readCellNumber(): String = {
+    val in = scala.io.StdIn.readLine()
+    in
+  }
+  
   
   
 }

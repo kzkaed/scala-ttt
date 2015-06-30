@@ -1,13 +1,16 @@
 package players
 import base.GameRules
+import ui._
 
-class Human (playerMark: String) extends Player {
+class Human (var playerMark: String, userInterface: UserInterface) extends Player {
   
   def selectMove(game: GameRules): String = {
-    "1"
+    val moveSelection = userInterface.readCellNumber()
+    moveSelection
   }
   def getPlayerMark(): String = {
     playerMark
   }
+  
   
 }
