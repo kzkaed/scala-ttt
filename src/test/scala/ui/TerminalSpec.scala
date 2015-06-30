@@ -33,8 +33,8 @@ class TerminalSpec extends FunSpec{
     
     it("prompts player and reads in a cell number for move selection"){
       terminal.input = 1.toString()
-      assert(terminal.readLine() == "1")
+      assert(terminal.readCellNumber() == "1")
     } 
-    
+   
   }
 }

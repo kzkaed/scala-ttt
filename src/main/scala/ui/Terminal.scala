@@ -17,7 +17,7 @@ class Terminal extends UserInterface with OutputInput {
   }
   
   def readCellNumber(): String = {
-    val in = scala.io.StdIn.readLine()
+    val in = readLine()
     in
   }
   
