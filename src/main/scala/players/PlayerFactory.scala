@@ -1,7 +1,7 @@
 package players
 
 import ai._
-import ui._
+import gui._
 
 object PlayerFactory {
   

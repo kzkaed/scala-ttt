@@ -1,4 +1,4 @@
-package ui
+package gui
 
 trait OutputInput {
   def print(s: String) = Console.println(s)

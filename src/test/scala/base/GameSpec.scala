@@ -76,7 +76,7 @@ class GameSpec extends FunSpec {
     
     it("has available moves") {
       game.board = Array("x","o","x","o","5","6","7","8","9")
-      assert(game.availableMoves.sorted === Array("5", "6", "7", "8", "9"))
+      assert(game.availableCells.sorted === List("5", "6", "7", "8", "9"))
       assert(game.board === Array("x","o","x","o","5","6","7","8","9"))
     }
     

@@ -8,5 +8,6 @@ trait GameRules {
   def isDraw(): Boolean
   def isWin(): Boolean
   def isEnd(): Boolean
-  def clearBoard() : Unit
+  def clearBoard(): Unit
+  def availableCells(): List[String]
 }

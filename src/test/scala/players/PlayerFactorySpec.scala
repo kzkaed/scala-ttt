@@ -1,6 +1,7 @@
 package players
 
 import base.Game
+import gui._
 import mocks.MockUserInterface
 import org.scalatest._
 import org.junit.runner.RunWith
@@ -13,7 +14,7 @@ class PlayerFactorySpec extends FunSpec {
   
  it("gets a human player") {
    val engine = new ai.Minimax
-   val userInterface = new ui.TConsole
+   val userInterface = new TConsole
    val player1 = PlayerFactory.getPlayer("human", "x", engine, userInterface)   
    val expected1 = new players.Human("x", userInterface)
    
@@ -22,7 +23,7 @@ class PlayerFactorySpec extends FunSpec {
  
   it("get a computer player"){
    val engine = new ai.Minimax
-   val userInterface = new ui.TConsole
+   val userInterface = new TConsole
    val player2 = PlayerFactory.getPlayer("computer", "o", engine, userInterface) 
    val expected2 = new players.Computer("o", engine)
   

@@ -30,9 +30,9 @@ class Game(var board: Array[String]) extends GameRules {
      board = result.toArray
    }
    
-   def availableMoves(): Array[String] = {
+   def availableCells(): List[String] = {
      val result = board.toSet.&~(Set("x","o"))
-     result.toArray
+     result.toList
    }
    
    def isAcross(): Boolean = {

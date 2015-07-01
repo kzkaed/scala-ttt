@@ -1,6 +1,6 @@
 package base
 
-import ui._
+import gui._
 import players._
 
 
@@ -13,20 +13,19 @@ class Runner(val game: GameRules,
     userInterface.prepare()
     userInterface.displayBoard(game.getCurrentBoard())
     
-    //while(!game.isEnd){   
+    while(!game.isEnd){   
       var moveSelection = player1.selectMove(game)
       game.takeTurn(moveSelection, player1.getPlayerMark())
       var board = game.getCurrentBoard()
       userInterface.displayBoard(board)
       
+      println(game.isWin)
+      
       moveSelection = player2.selectMove(game)
       game.takeTurn(moveSelection, player2.getPlayerMark())
       board = game.getCurrentBoard()
       userInterface.displayBoard(board)
-      
-      
-      
-    //}
+     }
     userInterface.goodbye()  
   }
  

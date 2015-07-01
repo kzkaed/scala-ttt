@@ -1,13 +1,13 @@
 package players
 import base.GameRules
-import ui._
+import gui._
 
 class Human (var playerMark: String, userInterface: UserInterface) extends Player {
   
   def selectMove(game: GameRules): String = {
-    val moveSelection = userInterface.readCellNumber()
-    moveSelection
+    userInterface.readCellNumber(game.availableCells())
   }
+  
   def getPlayerMark(): String = {
     playerMark
   }

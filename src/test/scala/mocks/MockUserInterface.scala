@@ -1,5 +1,5 @@
 package mocks
-import ui.UserInterface
+import gui.UserInterface
 
 class MockUserInterface extends UserInterface {
   var prepareCalled: Boolean = false
@@ -19,7 +19,7 @@ class MockUserInterface extends UserInterface {
     prepareCalled = true
   }
   
-   def readCellNumber(): String = {
+   def readCellNumber(availableCells: List[String]): String = {
     cellNumberCalled = true
     cellSelection
   }
@@ -36,6 +36,8 @@ class MockUserInterface extends UserInterface {
   def isReadCellNumberCalled(): Boolean = {
     cellNumberCalled
   }
+  
+  
   
  
  

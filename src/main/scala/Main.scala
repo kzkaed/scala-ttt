@@ -1,6 +1,6 @@
 import players._
 import ai._
-import ui._
+import gui._
 import base._
 
 object Main {
@@ -17,6 +17,7 @@ object Main {
  
     if (args.length > 0) {
       if( args(0).contentEquals("HC") ) {
+        println("Human Computer")
         player1 = PlayerFactory.getPlayer("human", xMark, engine, userInterface)
         player2 = PlayerFactory.getPlayer("computer",oMark, engine,userInterface)
       }  

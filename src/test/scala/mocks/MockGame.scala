@@ -19,6 +19,11 @@ var takeTurnCalled = false
   def isWin(): Boolean = {
     true
   }
+  
+  def availableCells(): List[String] = {
+    List("5", "6", "7", "8", "9")
+  }
+  
   override def takeTurn(moveSelection: String, playerMark: String): Array[String] = {
     takeTurnCalled = true
     if (boards.isEmpty) Array[String]("") else boards.head
