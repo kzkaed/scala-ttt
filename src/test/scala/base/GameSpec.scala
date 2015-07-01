@@ -6,7 +6,9 @@ import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class GameSpec extends FunSpec {
-  val board = Array("1","2","3","4","5","6","7","8","9")
+  val board = Array("1","2","3",
+                    "4","5","6",
+                    "7","8","9")
   val game = new Game(board: Array[String])
   
   describe("game board"){
@@ -35,28 +37,78 @@ class GameSpec extends FunSpec {
        
       assert(game.takeTurn(moveSelection, playerMark) === boardAfterTurn )
     }
-    
+  
     it("should end if winner"){
+       game.board = Array("x","o","x",          
+                         "o","x","o",
+                         "o","x","x")
       assert(game.isEnd == true)
     }
-    
+  
     it("should be a draw if no win"){
+      game.board = Array("x","o","x",
+                         "o","x","o",
+                         "o","x","9") 
       assert(game.isDraw() == false)
+      
+      game.board = Array("x","o","x",
+                         "o","x","o",
+                         "o","x","o") 
+      assert(game.isDraw() == true)
     }
+
     
-    it("should be a win if 3 in a row"){
+    it("should not be a win"){
+      game.board = Array("x","x","o",
+                         "o","x","o",
+                         "x","o","9") 
+      assert(game.isWin() == false)
+    } 
+    
+    it("should be win"){
+      game.board = Array("x","o","x",          
+                         "o","x","o",
+                         "o","x","x") 
+      
       assert(game.isWin()==true)
     }
+   
     
     it("has available moves") {
       game.board = Array("x","o","x","o","5","6","7","8","9")
-      assert(game.availableMoves === Array("5", "6", "7", "8", "9"))
+      assert(game.availableMoves.sorted === Array("5", "6", "7", "8", "9"))
+      assert(game.board === Array("x","o","x","o","5","6","7","8","9"))
     }
     
-       
+    it("has 3 across") {
+       game.board = Array("x","x","x","o","5","6","7","8","9")
+      assert(game.isAcross() == true)
+      
+    }
     
-  
-  
-}
+    it("has 3 dowm") {
+       game.board = Array( "x","o","o",
+                           "x","5","6",
+                           "x","8","9" )
+       assert(game.isDown == true) 
+    }
+    
+    it("has 3 on diagonals") {
+       game.board = Array( "x","o","o",
+                           "o","x","6",
+                           "o","8","x" )
+       assert(game.isDiagonal == true) 
+    }
+    
+    it("clears the board"){
+       game.board = Array("x","o","x",          
+                         "o","x","o",
+                         "o","x","x") 
+      game.clearBoard()
+      assert(game.board === Array("1","2","3",          
+                                 "4","5","6",
+                                 "7","8","9"))
+    }
+  }
   
 }

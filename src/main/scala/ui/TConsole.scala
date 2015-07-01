@@ -28,6 +28,6 @@ class TConsole extends UserInterface with OutputInput {
             board(6) + " | " + board(7) + " | " + board(8) + "\n"
     b
   }
-  
+ 
   
 }

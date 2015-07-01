@@ -1,4 +1,4 @@
-name := "sample scala project"
+name := "Scala Tic Tac Toe"
 
 version := "2.0"
 
