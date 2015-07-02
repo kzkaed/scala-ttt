@@ -2,14 +2,13 @@ package base
 
 import gui._
 import players._
-import scala.util.control.Breaks._
 
 class Runner(val game: GameRules, 
              val userInterface: UserInterface, 
              val player1: Player, 
              val player2: Player){
   
-  def run() : Unit = {
+  def run(): Unit = {
     startGame
     while (!game.isEnd) play 
     endGame
@@ -17,9 +16,9 @@ class Runner(val game: GameRules,
   
   def startGame(): Unit = {
     userInterface.prepare()
-    userInterface.displayBoard(game.getCurrentBoard()) 
+    displayCurrentBoard
   }
- 
+  
   def play(): Unit =  {
     firstPlay
     if (!game.isWin && !game.isDraw()) secondPlay  
@@ -38,7 +37,7 @@ class Runner(val game: GameRules,
   def displayCurrentBoard(): Unit = {
     userInterface.displayBoard(game.getCurrentBoard())
   }
- 
+  
   def endGame(): Unit = {
     userInterface.displayGameResult(player1.getPlayerMark(), player2.getPlayerMark(), game: GameRules)
     userInterface.goodbye()

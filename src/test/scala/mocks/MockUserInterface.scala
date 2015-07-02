@@ -8,9 +8,10 @@ class MockUserInterface extends UserInterface {
   var cellNumberCalled: Boolean = false
   var cellSelection = "1"
   var displayGameResultCalled = false
-  
-  
+  var goodbyeCalled = true
+   
   def goodbye(): Unit = {  
+    goodbyeCalled = true
   }
   
   def displayBoard(board: Array[String]): Unit = {
@@ -44,6 +45,10 @@ class MockUserInterface extends UserInterface {
   }
   def isDisplayGameResultCalled(): Boolean = {
     displayGameResultCalled
+  }
+  
+  def isGoodbyeCalled(): Boolean = {
+    goodbyeCalled
   }
   
   

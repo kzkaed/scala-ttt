@@ -30,12 +30,12 @@ class RunnerSpec extends FunSpec {
   }
   
   it("displays game introduction with user interface"){
-    runner.run()
+    runner.run
     assert(userInterface.isPrepareCalled() == true)
   }
   
   it("displays the board with the user interface"){
-    runner.run()
+    runner.run
     assert(userInterface.isDisplayBoardCalled() == true)
   }
   
@@ -43,7 +43,7 @@ class RunnerSpec extends FunSpec {
     val move = "1"
     player1.moves = move :: player1.moves
     
-    runner.run()
+    runner.run
     
     assert(player1.selectMove(game) == "1")   
     assert(player1.isSelectMoveCalled() == true)
@@ -53,24 +53,38 @@ class RunnerSpec extends FunSpec {
     val move = "2"
     player2.moves = move :: player2.moves
     
-    runner.run()
+    runner.run
     
     assert(player2.selectMove(game) == "2")
     assert(player2.isSelectMoveCalled() == true)
   }
    
   it ("sends move and player to game and gets a board") {
-   val moveSelection = "1"
-   val playerMark = "x"
-   val fakeBoard = Array("x","2","3","4","5","6","7","8","9")
-   game.boards = fakeBoard :: game.boards
-   val boardResult = Array("x","2","3","4","5","6","7","8","9")
+    val moveSelection = "1"
+    val playerMark = "x"
+    val fakeBoard = Array("x","2","3",
+                          "4","5","6",
+                          "7","8","9")
+    game.boards = fakeBoard :: game.boards
    
-   runner.run()
-   assert(game.takeTurn(moveSelection, playerMark) === boardResult)
-   assert(game.isTakeTurnCalled() == true)
+    val boardResult = Array("x","2","3",
+                            "4","5","6",
+                            "7","8","9")
+                           
+    runner.run
+    assert(game.takeTurn(moveSelection, playerMark) === boardResult)
+    assert(game.isTakeTurnCalled() == true)
   }  
   
+  it ("it displays results to user interface") {
+    runner.run
+    assert(userInterface.displayGameResultCalled == true)
+  }
+  
+  it ("it displays goodbye when game has ended") {
+    runner.run
+    assert(userInterface.goodbyeCalled == true)
+  }
   
 }
   
