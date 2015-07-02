@@ -24,6 +24,8 @@ var takeTurnCalled = false
     "x"
   }
   
+  def clearAt(cell: String): Unit = ???
+  
   def availableCells(): List[String] = {
     List("5", "6", "7", "8", "9")
   }
