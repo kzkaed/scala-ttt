@@ -11,4 +11,5 @@ trait GameRules {
   def clearBoard(): Unit
   def availableCells(): List[String]
   def winnerMark(): String
+  def clearAt(cell: String): Unit
 }
