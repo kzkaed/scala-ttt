@@ -1,11 +1,13 @@
 package mocks
 import gui.UserInterface
+import base._
 
 class MockUserInterface extends UserInterface {
   var prepareCalled: Boolean = false
   var displayBoardCalled: Boolean = false
   var cellNumberCalled: Boolean = false
   var cellSelection = "1"
+  var displayGameResultCalled = false
   
   
   def goodbye(): Unit = {  
@@ -13,6 +15,10 @@ class MockUserInterface extends UserInterface {
   
   def displayBoard(board: Array[String]): Unit = {
     displayBoardCalled = true
+  }
+  
+  def displayGameResult(playerMark1: String, playerMark2: String, game: GameRules): Unit = {
+    displayGameResultCalled = true
   }
   
   def prepare(): Unit = {
@@ -36,7 +42,9 @@ class MockUserInterface extends UserInterface {
   def isReadCellNumberCalled(): Boolean = {
     cellNumberCalled
   }
-  
+  def isDisplayGameResultCalled(): Boolean = {
+    displayGameResultCalled
+  }
   
   
  

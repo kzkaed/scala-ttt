@@ -12,18 +12,22 @@ class TConsoleSpec extends FunSpec{
   val board = Array[String]("1","2","3","4","5","6","7","8","9")
   val game = new Game(board)
   val tconsole = new TConsole with MockIO
-  val messageList = List("Welcome to Scala Tic Tac Toe",
-                         "Goodbye")
+  val messageMap = Map ('welcome    -> "Welcome to Scala Tic Tac Toe",
+                         'enter     -> "Enter cell number: ",
+                         'incorrect -> "Incorrect input, try again.",
+                         'win       -> " Wins!", 
+                         'draw      -> "It is a draw.",
+                         'goodbye   -> "Goodbye")
   
   describe("terminal"){
     it("displays a welcome message"){
       tconsole.prepare()
-      assert(tconsole.messages.contains(messageList(0)) )
+      assert(tconsole.messages.contains(messageMap('welcome)) )
     }
     
     it("displays goodbye") {
       tconsole.goodbye()
-      assert(tconsole.messages.contains(messageList(1)) )
+      assert(tconsole.messages.contains(messageMap('goodbye)) )
     }
   
     it("displays a formatted board") {
@@ -38,6 +42,15 @@ class TConsoleSpec extends FunSpec{
       val availableCells = List("1","2","3","4","5","6","7","8","9")
       assert(tconsole.readCellNumber(availableCells) == "1")
     } 
+    
+    it("displays game result") {
+      val board = Array[String]("x","o","3",
+                                "o","x","6",
+                                "7","8","x")
+      val game2 = new Game(board)
+      tconsole.displayGameResult("x", "o", game2)
+      assert(tconsole.messages.contains("x" + messageMap('win)))
+    }
 
   }
 }

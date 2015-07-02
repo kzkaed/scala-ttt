@@ -20,6 +20,10 @@ var takeTurnCalled = false
     true
   }
   
+  def winnerMark() :String = {
+    "x"
+  }
+  
   def availableCells(): List[String] = {
     List("5", "6", "7", "8", "9")
   }
@@ -33,6 +37,7 @@ var takeTurnCalled = false
   def isTakeTurnCalled(): Boolean = {
     takeTurnCalled
   }
+  
   
   
 }

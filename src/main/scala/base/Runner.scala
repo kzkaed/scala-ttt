@@ -40,9 +40,8 @@ class Runner(val game: GameRules,
   }
  
   def endGame(): Unit = {
+    userInterface.displayGameResult(player1.getPlayerMark(), player2.getPlayerMark(), game: GameRules)
     userInterface.goodbye()
   }
-    
-  
-  
+ 
 }

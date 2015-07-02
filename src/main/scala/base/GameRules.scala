@@ -10,4 +10,5 @@ trait GameRules {
   def isEnd(): Boolean
   def clearBoard(): Unit
   def availableCells(): List[String]
+  def winnerMark(): String
 }

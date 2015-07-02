@@ -69,7 +69,6 @@ class GameSpec extends FunSpec {
       game.board = Array("x","o","x",          
                          "o","x","o",
                          "o","x","x") 
-      
       assert(game.isWin()==true)
     }
    
@@ -82,8 +81,7 @@ class GameSpec extends FunSpec {
     
     it("has 3 across") {
        game.board = Array("x","x","x","o","5","6","7","8","9")
-      assert(game.isAcross() == true)
-      
+      assert(game.isAcross() == true)   
     }
     
     it("has 3 dowm") {
@@ -101,14 +99,33 @@ class GameSpec extends FunSpec {
     }
     
     it("clears the board"){
-       game.board = Array("x","o","x",          
+      game.board = Array("x","o","x",          
                          "o","x","o",
                          "o","x","x") 
       game.clearBoard()
       assert(game.board === Array("1","2","3",          
-                                 "4","5","6",
-                                 "7","8","9"))
+                                  "4","5","6",
+                                  "7","8","9"))
     }
+    
+    it("gets a winner mark on win") {
+      game.board = Array("x","o","x",          
+                         "o","x","o",
+                         "o","x","x") 
+      assert(game.winnerMark() == "x")
+    }
+    
+    it("clears a cell") {
+      game.board = Array("1","2","3",          
+                         "4","5","6",
+                         "7","8","x") 
+      var cell = "9"
+      game.clearAt(cell)
+      assert(game.board === Array("1","2","3",          
+                                  "4","5","6",
+                                  "7","8","9"))
+    }
+
   }
   
 }

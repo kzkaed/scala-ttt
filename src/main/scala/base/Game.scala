@@ -35,6 +35,17 @@ class Game(var board: Array[String]) extends GameRules {
      result.toList.sorted
    }
    
+   def winnerMark(): String = {
+     val xReduced = board.filter { cell => cell == "x" }.length
+     val oReduced = board.filter { cell => cell == "o" }.length
+     if (xReduced > oReduced) "x"
+     else "o"
+   }
+   
+   def clearAt(cell: String): Unit = {
+     board(cell.toInt - 1) = cell
+   }
+   
    def isAcross(): Boolean = {
      (List(board(0), board(1),board(2)).distinct).size == 1 ||
      (List(board(3), board(4),board(5)).distinct).size == 1 || 
