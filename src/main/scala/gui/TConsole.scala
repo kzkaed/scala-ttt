@@ -38,7 +38,7 @@ class TConsole extends UserInterface with OutputInput {
   }
   
   private def askForCellNumberAgain(availableCells: List[String]) = {
-    print("Incorrect input, try again: ")
+    print("Incorrect input, try again.")
     readCellNumber(availableCells: List[String])   
   }
   

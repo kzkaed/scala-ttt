@@ -18,7 +18,7 @@ class ComputerSpec extends FunSpec {
   val game = new Game(board)
   
   it("should determine move from ai") {
-    val expectedSelection = "9"
+    val expectedSelection = "1"
     
     assert(computerPlayer.selectMove(game) === expectedSelection)   
   }

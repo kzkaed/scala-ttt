@@ -6,7 +6,7 @@ import base.GameRules
 class MockIntelligence extends Intelligence {
   
   def getBestMove(game: GameRules, playerMark: String): String = {
-    "9"
+    game.availableCells().head
   }
     
   

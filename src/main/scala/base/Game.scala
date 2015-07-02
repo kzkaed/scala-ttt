@@ -32,7 +32,7 @@ class Game(var board: Array[String]) extends GameRules {
    
    def availableCells(): List[String] = {
      val result = board.toSet.&~(Set("x","o"))
-     result.toList
+     result.toList.sorted
    }
    
    def isAcross(): Boolean = {
