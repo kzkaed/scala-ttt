@@ -11,7 +11,7 @@ class Negamax extends Intelligence {
   }
   
   def calculate(game: GameRules, playerMark: String, depth: Int): Int = {
-    if (game.isEnd) { getValue(game, playerMark, depth) }
+    if (game.isEnd) getValue(game, playerMark, depth) 
     else{
       var bestValue = -1000000000
       var nextPlayer = switch(playerMark)

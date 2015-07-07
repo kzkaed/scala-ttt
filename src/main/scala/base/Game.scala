@@ -3,13 +3,12 @@ package base
 
 class Game(var board: Array[String]) extends GameRules {
   
-  def getCurrentBoard(): Array[String] = {
+   def getCurrentBoard(): Array[String] = {
     board
-  }
+   }
   
    def takeTurn(moveSelection: String, playerMark: String): Array[String] = {
-     val selection = getNumber(moveSelection)
-     board.update(selection, playerMark)
+     board.update(getNumber(moveSelection), playerMark)
      board
    }
    
@@ -25,14 +24,12 @@ class Game(var board: Array[String]) extends GameRules {
      board.toSet.size == 2 && !isWin
    }
    
-   def clearBoard(): Unit = {
-     val result = (1 to 9) map { _.toString }   
-     board = result.toArray
+   def clearBoard(): Unit = {  
+     board = ((1 to 9) map(_.toString)).toArray
    }
    
    def availableCells(): List[String] = {
-     val result = board.toSet.&~(Set("x","o"))
-     result.toList.sorted
+     (board.toSet.&~(Set("x","o"))).toList.sorted
    }
    
    def winnerMark(): String = {
