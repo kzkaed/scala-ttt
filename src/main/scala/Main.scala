@@ -34,7 +34,8 @@ object Main {
       println("Computer Computer")
       player1 = PlayerFactory.getPlayer("computer", xMark, engine, userInterface)
       player2 = PlayerFactory.getPlayer("computer", oMark, engine, userInterface)
-    case _ => println("Human Human")
+    case _ => 
+      println("Human Human")
       player1 = PlayerFactory.getPlayer("human", xMark, engine, userInterface)
       player2 = PlayerFactory.getPlayer("human", oMark, engine, userInterface)
    }
