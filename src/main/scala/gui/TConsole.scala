@@ -16,9 +16,8 @@ class TConsole extends UserInterface with OutputInput {
     print(messageMap('welcome))
   }
   
-  def displayBoard(board: Array[String]) = {
-    val formatted = construct(board)
-    print(formatted)
+  def displayBoard(board: Array[String]) = { 
+    print(construct(board))
   }
     
   def displayGameResult(playerMark1: String, playerMark2: String, game: GameRules){
@@ -31,8 +30,7 @@ class TConsole extends UserInterface with OutputInput {
   
   def readCellNumber(availableCells: List[String]): String = {
     askForCellNumber
-    val cell = readLine()
-    validate(cell, availableCells)   
+    validate(readLine(), availableCells)   
   }
   
   def construct(board: Array[String]): String = {
