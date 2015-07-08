@@ -8,13 +8,21 @@ class Game(var board: Array[String]) extends GameRules {
      board
    }
    
-   def isEnd: Boolean = isWin || isDraw 
+   def isEnd: Boolean = { 
+     isWin || isDraw 
+   }
     
-   def isWin: Boolean = isDiagonal || isDown || isAcross
+   def isWin: Boolean = { 
+     isDiagonal || isDown || isAcross
+   }
  
-   def isDraw: Boolean = board.toSet.size == 2 && !isWin
+   def isDraw: Boolean = { 
+     board.toSet.size == 2 && !isWin
+   }
       
-   def availableCells: List[String] = board.toSet.&~(Set("x","o")).toList.sorted
+   def availableCells: List[String] = { 
+     board.toSet.&~(Set("x","o")).toList.sorted
+   }
       
    def winnerMark: String = {
      val xReduced = board.filter { cell => cell == "x" }.length
