@@ -10,7 +10,9 @@ class Runner(val game: GameRules,
   
   def run(): Unit = {
     startGame()
-    while (!game.isEnd) play() 
+    while (!game.isEnd) {
+      play() 
+    }
     endGame()
   }
   
@@ -21,7 +23,9 @@ class Runner(val game: GameRules,
   
   def play(): Unit =  {
     firstPlay()
-    if (!game.isWin && !game.isDraw) secondPlay()  
+    if (!game.isWin && !game.isDraw) {
+      secondPlay()  
+    }
   }
  
   def firstPlay(): Unit = {
