@@ -22,10 +22,10 @@ class AIIntegration extends FunSpec {
       val oMark = "o"
       var player1 = PlayerFactory.getPlayer("computer", xMark, engine, userInterface)
       var player2 = PlayerFactory.getPlayer("computer", oMark, engine, userInterface)
-      new base.Runner(game, userInterface, player1, player2).run()
+      new Runner(game, userInterface, player1, player2).run()
       
       assert(game.isWin == false)
-      assert(game.isDraw() == true)
+      assert(game.isDraw == true)
     }
   }
 
