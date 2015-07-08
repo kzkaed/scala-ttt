@@ -2,7 +2,7 @@ package mocks
 import gui._
 
 trait MockIO extends OutputInput {
-  var messages: Seq[String] = Seq()
+  var outputs: Seq[String] = Seq()
   var output = ""
   var input = ""
   
@@ -15,6 +15,6 @@ trait MockIO extends OutputInput {
   def goodbye(): Unit
   def readCellNumber(availableCells: List[String]): String
   
-  override def print(s: String) = messages = messages :+ s
+  override def print(s: String) = outputs = outputs :+ s
   
 }
