@@ -17,7 +17,7 @@ class Negamax extends Intelligence {
       var nextPlayer = switch(playerMark)
       var value = 0
       
-      game.availableCells().foreach { moveSelection => 
+      game.availableCells.foreach { moveSelection => 
         game.takeTurn(moveSelection, playerMark)
         value = -calculate(game, nextPlayer, depth + 1)
         game.clearAt(moveSelection)

@@ -81,7 +81,7 @@ class GameSpec extends FunSpec {
     
     it("has 3 across") {
        game.board = Array("x","x","x","o","5","6","7","8","9")
-      assert(game.isAcross() == true)   
+      assert(game.isAcross == true)   
     }
     
     it("has 3 down") {

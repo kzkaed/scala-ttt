@@ -6,11 +6,5 @@ class Human (var playerMark: String, userInterface: UserInterface) extends Playe
   
   def selectMove(game: GameRules): String = {
     userInterface.readCellNumber(game.availableCells())
-  }
-  
-  def getPlayerMark(): String = {
-    playerMark
-  }
-  
-  
+  }  
 }

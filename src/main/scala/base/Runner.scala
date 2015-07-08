@@ -21,25 +21,25 @@ class Runner(val game: GameRules,
   
   def play(): Unit =  {
     firstPlay
-    if (!game.isWin && !game.isDraw()) secondPlay  
+    if (!game.isWin && !game.isDraw) secondPlay  
   }
  
   def firstPlay(): Unit = {
-    game.takeTurn(player1.selectMove(game), player1.getPlayerMark())
+    game.takeTurn(player1.selectMove(game), player1.playerMark)
     displayCurrentBoard
   }
     
   def secondPlay(): Unit = {
-    game.takeTurn(player2.selectMove(game), player2.getPlayerMark())
+    game.takeTurn(player2.selectMove(game), player2.playerMark)
     displayCurrentBoard   
   }
   
   def displayCurrentBoard(): Unit = {
-    userInterface.displayBoard(game.getCurrentBoard())
+    userInterface.displayBoard(game.board)
   }
   
   def endGame(): Unit = {
-    userInterface.displayGameResult(player1.getPlayerMark(), player2.getPlayerMark(), game: GameRules)
+    userInterface.displayGameResult(player1.playerMark, player2.playerMark, game: GameRules)
     userInterface.goodbye()
   }
  

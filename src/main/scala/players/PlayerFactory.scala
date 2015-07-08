@@ -5,8 +5,8 @@ import gui._
 
 object PlayerFactory {
   
-  def getPlayer(s: String, playerMark: String, engine: Intelligence, userInterface: UserInterface): Player = {
-    if(s == "computer") return new Computer(playerMark,engine)
-    else return new Human(playerMark, userInterface)
+  def getPlayer(playerType: String, playerMark: String, engine: Intelligence, userInterface: UserInterface): Player = {
+    if(playerType == "computer") new Computer(playerMark, engine)
+    else new Human(playerMark, userInterface)
   }
 }

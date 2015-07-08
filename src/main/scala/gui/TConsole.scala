@@ -12,16 +12,15 @@ class TConsole extends UserInterface with OutputInput {
                          
   val cells = List("1","2","3","4","5","6","7","8","9")
    
-  def prepare(): Unit = {
-    print(messageMap('welcome))
-  }
+  def prepare(): Unit = print(messageMap('welcome))
+  
   
   def displayBoard(board: Array[String]) = { 
     print(construct(board))
   }
     
   def displayGameResult(playerMark1: String, playerMark2: String, game: GameRules){
-     print(gameResult(playerMark1, playerMark2, game))
+    print(gameResult(playerMark1, playerMark2, game))
   }
 
   def goodbye(): Unit = {

@@ -15,15 +15,12 @@ class HumanSpec extends FunSpec {
   val player2 = new Human("o",userInterface)
   
   it("can have a player mark x") {
-    player1.playerMark = "x"
-    assert(player1.getPlayerMark() == "x")
+    assert(player1.playerMark == "x")
   }
   
-  it("can have a player mark o") {
-    player2.playerMark = "o"
-    assert(player2.getPlayerMark() == "o")
+  it("can have a player mark o") {   
+    assert(player2.playerMark  == "o")
   }
-  
   
  it("receives player1 move selection from user interface") {
     val board = Array[String]("1","2","3","4","5","6","7","8","9")

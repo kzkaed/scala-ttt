@@ -21,4 +21,8 @@ class ComputerSpec extends FunSpec {
     assertResult(expectedSelection)(computerPlayer.selectMove(game))
   }
   
+  it("has a playerMark") {
+    assert(computerPlayer.playerMark == "o")
+  }
+  
 }
