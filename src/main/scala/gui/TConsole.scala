@@ -2,7 +2,6 @@ package gui
 
 import base._
 
-
 class TConsole extends UserInterface with OutputInput {
   
   val cells = List("1","2","3","4","5","6","7","8","9")
@@ -15,13 +14,13 @@ class TConsole extends UserInterface with OutputInput {
     print(construct(board))
   }
     
-  def displayGameResult(playerMark1: String, playerMark2: String, game: GameRules): Unit = {
-    print(gameResult(playerMark1, playerMark2, game))
-  }
- 
   def readCellNumber(availableCells: List[String]): String = {
     askForCellNumber()
     validate(readLine(), availableCells)   
+  }
+  
+  def displayGameResult(playerMark1: String, playerMark2: String, game: GameRules): Unit = {
+    print(gameResult(playerMark1, playerMark2, game))
   }
   
   def goodbye(): Unit = {
