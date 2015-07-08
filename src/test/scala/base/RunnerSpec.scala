@@ -31,12 +31,12 @@ class RunnerSpec extends FunSpec {
   
   it("displays game introduction with user interface"){
     runner.run
-    assert(userInterface.isPrepareCalled() == true)
+    assert(userInterface.isPrepareCalled == true)
   }
   
   it("displays the board with the user interface"){
     runner.run
-    assert(userInterface.isDisplayBoardCalled() == true)
+    assert(userInterface.isDisplayBoardCalled == true)
   }
   
   it("receives player1 move from user interface"){
@@ -46,7 +46,7 @@ class RunnerSpec extends FunSpec {
     runner.run
     
     assert(player1.selectMove(game) == "1")   
-    assert(player1.isSelectMoveCalled() == true)
+    assert(player1.isSelectMoveCalled == true)
   }
   
   it ("receives player2 move from user inteface") {
@@ -56,7 +56,7 @@ class RunnerSpec extends FunSpec {
     runner.run
     
     assert(player2.selectMove(game) == "2")
-    assert(player2.isSelectMoveCalled() == true)
+    assert(player2.isSelectMoveCalled == true)
   }
    
   it ("sends move and player to game and gets a board") {
@@ -73,18 +73,17 @@ class RunnerSpec extends FunSpec {
                            
     runner.run
     assert(game.takeTurn(moveSelection, playerMark) === boardResult)
-    assert(game.isTakeTurnCalled() == true)
+    assert(game.isTakeTurnCalled == true)
   }  
   
   it ("it displays results to user interface") {
     runner.run
-    assert(userInterface.displayGameResultCalled == true)
+    assert(userInterface.isDisplayGameResultCalled == true)
   }
   
   it ("it displays goodbye when game has ended") {
     runner.run
-    assert(userInterface.goodbyeCalled == true)
+    assert(userInterface.isGoodbyeCalled == true)
   }
-  
 }
   

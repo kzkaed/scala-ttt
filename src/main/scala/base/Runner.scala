@@ -9,29 +9,29 @@ class Runner(val game: GameRules,
              val player2: Player){
   
   def run(): Unit = {
-    startGame
-    while (!game.isEnd) play 
-    endGame
+    startGame()
+    while (!game.isEnd) play() 
+    endGame()
   }
   
   def startGame(): Unit = {
     userInterface.prepare()
-    displayCurrentBoard
+    displayCurrentBoard()
   }
   
   def play(): Unit =  {
-    firstPlay
-    if (!game.isWin && !game.isDraw) secondPlay  
+    firstPlay()
+    if (!game.isWin && !game.isDraw) secondPlay()  
   }
  
   def firstPlay(): Unit = {
     game.takeTurn(player1.selectMove(game), player1.playerMark)
-    displayCurrentBoard
+    displayCurrentBoard()
   }
     
   def secondPlay(): Unit = {
     game.takeTurn(player2.selectMove(game), player2.playerMark)
-    displayCurrentBoard   
+    displayCurrentBoard()   
   }
   
   def displayCurrentBoard(): Unit = {
