@@ -1,5 +1,3 @@
-
-
 ##Scala Tic Tac Toe
 
 
@@ -11,7 +9,7 @@
     $ install sbt   (brew install sbt or manually)
     
     $ clone
-    $ cd ttt
+    $ cd scala-project
     $ sbt test      (compile and run tests)
 
 ##To play:
@@ -42,5 +40,4 @@ To exit sbt at prompt
 
 ##To test:
 
-    $ sbt test 
-    
+    $ sbt test
