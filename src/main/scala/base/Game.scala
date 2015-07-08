@@ -17,17 +17,15 @@ class Game(var board: Array[String]) extends GameRules {
    }
  
    def isDraw: Boolean = { 
-     board.toSet.size == 2 && !isWin
+     boardSet.size == 2 && !isWin
    }
       
    def availableCells: List[String] = { 
-     board.toSet.&~(Set("x","o")).toList.sorted
+     eliminateTakenCells.toList.sorted
    }
-      
+          
    def winnerMark: String = {
-     val xReduced = board.filter { cell => cell == "x" }.length
-     val oReduced = board.filter { cell => cell == "o" }.length
-     if (xReduced > oReduced) "x"
+     if (x > o) "x"
      else "o"
    }
    
@@ -60,5 +58,20 @@ class Game(var board: Array[String]) extends GameRules {
      moveSelection.toInt - 1
    }
    
+    private def x: Int = {
+     board.filter { cell => cell == "x" }.length
+   }
    
+   private def o: Int = {
+     board.filter { cell => cell == "o" }.length
+   }
+   
+   private def eliminateTakenCells: Set[String] = {
+     boardSet.&~(Set("x","o"))
+   }
+   
+   private def boardSet: Set[String] = {
+     board.toSet
+   }
+     
 }
