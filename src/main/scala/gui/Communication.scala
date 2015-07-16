@@ -1,6 +1,5 @@
 package gui
 
-
 object Communication {
   val messages = Map ('welcome   -> "Welcome to Scala Tic Tac Toe",
                       'enter     -> "Enter cell number: ",

@@ -27,6 +27,7 @@ class TConsole extends UserInterface with OutputInput {
     print(Communication.messages('goodbye))
   }
   
+  
   private def construct(board: Array[String]): String = {
    board(0) + " | " + board(1) + " | " + board(2) + "\n" +
    board(3) + " | " + board(4) + " | " + board(5) + "\n" +

@@ -3,40 +3,19 @@ import ai._
 import gui._
 import base._
 
-object Main {
-  
-  val userInterface = new TConsole
-  val board = Array[String]("1","2","3","4","5","6","7","8","9")
-  val game = new Game(board)
-  val engine = new Negamax
-  val xMark = "x"
-  val oMark = "o"
-  var player1 = PlayerFactory.getPlayer("human", xMark, engine, userInterface)
-  var player2 = PlayerFactory.getPlayer("human", oMark, engine, userInterface)
-  
+
+object Main { 
   def main(args: Array[String]): Unit = {
+    val setup = new Setup()
     if (args.length > 0) {
-      matchArgs(args(0))
+      val players = setup.matchArgs(args(0))  
+      val player1 = players.head.asInstanceOf[Player]
+      val player2 = players.last.asInstanceOf[Player]
+      new Runner(setup.game, setup.userInterface, player1, player2).run()
+    }else {     
+      new Runner(setup.game, setup.userInterface, setup.defaultPlayer1, setup.defaultPlayer2 ).run()
     }
-    new Runner(game, userInterface, player1, player2).run()
+      
   }
-  
-  def matchArgs(arg: String): Unit = arg match {
-    case "HC" =>
-      println("Human Computer")
-      player1 = PlayerFactory.getPlayer("human", xMark, engine, userInterface)
-      player2 = PlayerFactory.getPlayer("computer", oMark, engine, userInterface)
-    case "CH" =>
-      println("Computer Human")
-      player1 = PlayerFactory.getPlayer("computer", xMark, engine, userInterface)
-      player2 = PlayerFactory.getPlayer("human", oMark, engine, userInterface)
-    case "CC" =>
-      println("Computer Computer")
-      player1 = PlayerFactory.getPlayer("computer", xMark, engine, userInterface)
-      player2 = PlayerFactory.getPlayer("computer", oMark, engine, userInterface)
-    case _ => 
-      println("Human Human")
-      player1 = PlayerFactory.getPlayer("human", xMark, engine, userInterface)
-      player2 = PlayerFactory.getPlayer("human", oMark, engine, userInterface)
-   }
+ 
 }

@@ -25,8 +25,8 @@ class Game(var board: Array[String]) extends GameRules {
    }
           
    def winnerMark: String = {
-     if (x > o) "x"
-     else "o"
+     if (numberOfXs > numberOfOs) Mark.x
+     else Mark.o
    }
    
    def clearAt(cell: String): Unit = {
@@ -58,16 +58,16 @@ class Game(var board: Array[String]) extends GameRules {
      moveSelection.toInt - 1
    }
    
-    private def x: Int = {
-     board.filter { cell => cell == "x" }.length
+    private def numberOfXs: Int = {
+     board.filter { cell => cell == Mark.x }.length
    }
    
-   private def o: Int = {
-     board.filter { cell => cell == "o" }.length
+   private def numberOfOs: Int = {
+     board.filter { cell => cell == Mark.o }.length
    }
    
    private def eliminateTakenCells: Set[String] = {
-     boardSet.&~(Set("x","o"))
+     boardSet.&~(Set( Mark.x, Mark.o ))
    }
    
    private def boardSet: Set[String] = {
