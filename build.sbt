@@ -10,12 +10,14 @@ libraryDependencies ++= Seq(
   "org.scala-lang"          % "scala-reflect"   % "2.11.2",
   "org.scalaz"             %% "scalaz-core"     % "7.1.3", //functional data structures to complement standard
   "org.scalacheck"         %% "scalacheck"      % "1.11.5" % "test",
-  "org.scalatest"          %% "scalatest"       % "2.2.1"  % "test",
+  "org.scalatest"          %% "scalatest"       % "2.2.4"  % "test",
   "org.specs2"             %% "specs2"          % "2.4"    % "test",
-
   "junit"                   % "junit-dep"       % "4.10"   % "test",
-  "com.novocode"            % "junit-interface" % "0.10"   % "test"
+  "com.novocode"            % "junit-interface" % "0.10"   % "test",
+  "org.scalamock" %% "scalamock-scalatest-support" % "3.2" % "test"
 )
+
+
 
 scalacOptions ++= Seq(
   "-encoding", "UTF-8", "-optimise",
