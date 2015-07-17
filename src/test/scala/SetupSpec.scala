@@ -7,7 +7,7 @@ import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
-class SetupTest extends FunSpec {
+class SetupSpec extends FunSpec {
     val setup = new Setup() 
     val userInterface = new TConsole
     val board = Array[String]("1","2","3","4","5","6","7","8","9")
