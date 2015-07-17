@@ -85,5 +85,35 @@ class RunnerSpec extends FunSpec {
     runner.run
     assert(userInterface.isGoodbyeCalled == true)
   }
+  
+  describe("playing game") {
+  
+    it ("it starts game") {
+      runner.startGame()
+      assert(userInterface.isPrepareCalled() == true)
+      assert(userInterface.isDisplayBoardCalled() == true)
+    }
+  
+    it ("it plays player1") {
+      runner.firstPlay()
+      assert(player1.isSelectMoveCalled() == true)
+      assert(game.isTakeTurnCalled() == true)
+      assert(userInterface.isDisplayBoardCalled() == true)
+    }
+    
+    it ("it plays player2") {
+      runner.secondPlay()
+      assert(player2.isSelectMoveCalled() == true)
+      assert(game.isTakeTurnCalled() == true)
+      assert(userInterface.isDisplayBoardCalled() == true)
+    }
+    
+    it ("it ends game") {
+      runner.endGame()  
+      assert(userInterface.isDisplayGameResultCalled() == true)
+      assert(userInterface.isGoodbyeCalled() == true)
+    }
+  }
+  
 }
   

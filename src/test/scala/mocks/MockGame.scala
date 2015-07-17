@@ -14,13 +14,16 @@ class MockGame (val board: Array[String]) extends GameRules {
     board
   }
   def clearBoard(): Unit = ???
+  
   def isDraw(): Boolean = {
-      false 
+     false 
   }
+  
   def isEnd(): Boolean = {
     endCalled = true
     true
   }
+  
   def isWin(): Boolean = {
     winCalled = true
     true
