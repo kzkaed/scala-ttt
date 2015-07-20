@@ -13,7 +13,7 @@ class Game(var board: Array[String]) extends GameRules {
    }
     
    def isWin: Boolean = { 
-     isDiagonal || isDown || isAcross
+     isWinDiagonal || isWinDown || isWinAcross
    }
  
    def isDraw: Boolean = { 
@@ -37,19 +37,19 @@ class Game(var board: Array[String]) extends GameRules {
      board = ((1 to 9) map(_.toString)).toArray
    }
    
-   def isAcross: Boolean = {
+   def isWinAcross: Boolean = {
      (List(board(0), board(1),board(2)).distinct).size == 1 ||
      (List(board(3), board(4),board(5)).distinct).size == 1 || 
      (List(board(6), board(7),board(8)).distinct).size == 1
    }
    
-   def isDown: Boolean = {
+   def isWinDown: Boolean = {
      (List(board(0), board(3),board(6)).distinct).size == 1 ||
      (List(board(1), board(4),board(7)).distinct).size == 1 ||
      (List(board(2), board(5),board(8)).distinct).size == 1
    }
    
-   def isDiagonal: Boolean = {
+   def isWinDiagonal: Boolean = {
     (List(board(0), board(4),board(8)).distinct).size == 1 ||
     (List(board(2), board(4),board(6)).distinct).size == 1
    }  
@@ -73,5 +73,7 @@ class Game(var board: Array[String]) extends GameRules {
    private def boardSet: Set[String] = {
      board.toSet
    }
+   
+  
      
 }
