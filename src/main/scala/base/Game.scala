@@ -34,16 +34,18 @@ class Game(var board: Array[String]) extends GameRules {
    }
    
    def clearBoard(): Unit = {  
-     board = ((1 to 9) map(_.toString)).toArray
+     board = ((1 to boardSize) map(_.toString)).toArray
    }
    
    def isWinAcross: Boolean = {
+     
      (List(board(0), board(1),board(2)).distinct).size == 1 ||
      (List(board(3), board(4),board(5)).distinct).size == 1 || 
      (List(board(6), board(7),board(8)).distinct).size == 1
    }
    
    def isWinDown: Boolean = {
+    
      (List(board(0), board(3),board(6)).distinct).size == 1 ||
      (List(board(1), board(4),board(7)).distinct).size == 1 ||
      (List(board(2), board(5),board(8)).distinct).size == 1
@@ -72,6 +74,14 @@ class Game(var board: Array[String]) extends GameRules {
    
    private def boardSet: Set[String] = {
      board.toSet
+   }
+   
+   def boardSize(): Int = {
+     board.size
+   }
+   
+   def rowSize(): Int = {
+     scala.math.sqrt(boardSize).toInt
    }
    
   

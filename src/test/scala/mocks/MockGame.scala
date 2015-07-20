@@ -47,6 +47,10 @@ class MockGame (val board: Array[String]) extends GameRules {
     if (boards.isEmpty) Array[String]("") else boards.head
   }
   
+  def boardSize(): Int = {
+    board.size
+  }
+  
   //expectations
   def isTakeTurnCalled(): Boolean = {
     takeTurnCalled

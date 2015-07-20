@@ -125,6 +125,18 @@ class GameSpec extends FunSpec {
                                   "4","5","6",
                                   "7","8","9"))
     }
+    
+    it("has board size") {
+      val size = game.boardSize()
+      assert(size == 9)
+    }
+    
+    it("can determin row size based on board size"){
+      assert(game.rowSize == 3)
+    }
+    
+   
+    
 
   }
   
