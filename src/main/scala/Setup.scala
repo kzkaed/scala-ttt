@@ -5,8 +5,8 @@ import base._
 
 class Setup {
   val userInterface = new TConsole
-  val board = Array[String]("1","2","3","4","5","6","7","8","9")
-  val game = new Game(board)
+  val gameboard = new GameBoard(3)
+  val game = new Game(gameboard.board)
   val engine = new Negamax
   val defaultPlayer1 = new Human(Mark.x, userInterface) 
   val defaultPlayer2 = new Human(Mark.o, userInterface) 
