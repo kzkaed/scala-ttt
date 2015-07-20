@@ -39,9 +39,10 @@ class Game(var board: Array[String]) extends GameRules {
    
    def isWinAcross: Boolean = {
      
-     (List(board(0), board(1),board(2)).distinct).size == 1 ||
-     (List(board(3), board(4),board(5)).distinct).size == 1 || 
-     (List(board(6), board(7),board(8)).distinct).size == 1
+     val rows = board.grouped(winSize).toList
+     (rows(0).distinct).size == 1 ||
+     (rows(1).distinct).size == 1 || 
+     (rows(2).distinct).size == 1
    }
    
    def isWinDown: Boolean = {
@@ -80,9 +81,12 @@ class Game(var board: Array[String]) extends GameRules {
      board.size
    }
    
-   def rowSize(): Int = {
+   def winSize(): Int = {
      scala.math.sqrt(boardSize).toInt
    }
+   
+  
+  
    
   
      

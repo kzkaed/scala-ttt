@@ -131,13 +131,11 @@ class GameSpec extends FunSpec {
       assert(size == 9)
     }
     
-    it("can determin row size based on board size"){
-      assert(game.rowSize == 3)
+    it("can determin row, column or diagnol win size based on board size"){
+      assert(game.winSize == 3)
     }
     
    
-    
-
   }
   
 }
