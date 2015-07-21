@@ -135,6 +135,14 @@ class GameSpec extends FunSpec {
       assert(game.winSize == 3)
     }
     
+     it("can determine a win of 4 across") {
+       game.board = Array("x","x","x","x",
+                          "5","6","7","8",
+                          "9","10","11","12",
+                          "13","14","15","16")
+      assert(game.isWinAcross == true)   
+    }
+    
    
   }
   

@@ -37,12 +37,15 @@ class Game(var board: Array[String]) extends GameRules {
      board = ((1 to boardSize) map(_.toString)).toArray
    }
    
-   def isWinAcross: Boolean = {
-     
+   def isWinAcross: Boolean = {    
+     var result = false
      val rows = board.grouped(winSize).toList
-     (rows(0).distinct).size == 1 ||
-     (rows(1).distinct).size == 1 || 
-     (rows(2).distinct).size == 1
+     rows foreach { row => 
+       if((row.distinct).size == 1){
+         result = true
+       }   
+     }
+     result
    }
    
    def isWinDown: Boolean = {

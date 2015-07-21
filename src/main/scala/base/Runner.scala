@@ -23,7 +23,7 @@ class Runner(val game: GameRules,
   
   def play(): Unit =  {
     firstPlay()
-    if (!game.isWin && !game.isDraw) {
+    if (!game.isEnd) {    
       secondPlay()  
     }
   }
