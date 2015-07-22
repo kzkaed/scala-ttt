@@ -22,22 +22,17 @@ class Runner(val game: GameRules,
   }
   
   def play(): Unit =  {
-    firstPlay()
+    makeMove(player1)
     if (!game.isEnd) {    
-      secondPlay()  
+      makeMove(player2)  
     }
   }
  
-  def firstPlay(): Unit = {
-    game.takeTurn(player1.selectMove(game), player1.playerMark)
+  def makeMove(player: Player) = {
+    game.takeTurn(player.selectMove(game), player.playerMark())
     displayCurrentBoard()
   }
-    
-  def secondPlay(): Unit = {
-    game.takeTurn(player2.selectMove(game), player2.playerMark)
-    displayCurrentBoard()   
-  }
-  
+
   def displayCurrentBoard(): Unit = {
     userInterface.displayBoard(game.board)
   }

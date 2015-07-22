@@ -56,4 +56,6 @@ class CLIPresenterSpec extends FunSpec{
      it("prints game draw results"){
      assert(presenter.drawResult == Communication.messages('draw))  
    }
+     
+    
 }

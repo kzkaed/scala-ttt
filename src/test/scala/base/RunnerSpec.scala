@@ -96,14 +96,14 @@ class RunnerSpec extends FunSpec {
     }
   
     it ("it plays player1") {
-      runner.firstPlay()
+      runner.makeMove(player1)
       assert(player1.isSelectMoveCalled() == true)
       assert(game.isTakeTurnCalled() == true)
       assert(userInterface.isDisplayBoardCalled() == true)
     }
     
     it ("it plays player2") {
-      runner.secondPlay()
+      runner.makeMove(player2)
       assert(player2.isSelectMoveCalled() == true)
       assert(game.isTakeTurnCalled() == true)
       assert(userInterface.isDisplayBoardCalled() == true)
@@ -114,6 +114,7 @@ class RunnerSpec extends FunSpec {
       assert(userInterface.isDisplayGameResultCalled() == true)
       assert(userInterface.isGoodbyeCalled() == true)
     }
+    
   }
   
 }

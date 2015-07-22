@@ -1,7 +1,7 @@
 package base
 
 trait GameRules {
-
+  
   def board(): Array[String]
   def takeTurn(moveSelection: String, playerMark: String): Array[String]
   def isDraw(): Boolean
