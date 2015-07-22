@@ -1,6 +1,6 @@
 package gui
-
-class TConsolePresenter {
+import base._
+class CLInterfacePresenter {
   
   def construct(board: Array[String]): String = {
     
@@ -17,5 +17,10 @@ class TConsolePresenter {
      result
   }
   
+  
+   def gameResult(playerMark1: String, playerMark2: String, game: GameRules): String = {
+    if (game.isWin) game.winnerMark() + Communication.messages('win)
+    else Communication.messages('draw)
+  }
   
 }

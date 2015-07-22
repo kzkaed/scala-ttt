@@ -4,7 +4,7 @@ import gui._
 import base._
 
 class Setup {
-  val userInterface = new TConsole
+  val userInterface = new CLInterface
   val gameboard = new GameBoard(3)
   val game = new Game(gameboard.board)
   val engine = new Negamax

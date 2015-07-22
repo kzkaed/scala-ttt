@@ -2,9 +2,8 @@ package gui
 
 import base._
 
-class TConsole extends UserInterface with OutputInput {
-  val presenter = new TConsolePresenter()
-  val cells = List("1","2","3","4","5","6","7","8","9")
+class CLInterface extends UserInterface with OutputInput {
+  val presenter = new CLInterfacePresenter()
    
   def prepare(): Unit = {
     print(Communication.messages('welcome))
@@ -20,7 +19,7 @@ class TConsole extends UserInterface with OutputInput {
   }
   
   def displayGameResult(playerMark1: String, playerMark2: String, game: GameRules): Unit = {
-    print(gameResult(playerMark1, playerMark2, game))
+    print(presenter.gameResult(playerMark1, playerMark2, game))
   }
   
   def goodbye(): Unit = {
@@ -45,9 +44,5 @@ class TConsole extends UserInterface with OutputInput {
     availableCells.contains(cell)
   }
   
-  private def gameResult(playerMark1: String, playerMark2: String, game: GameRules): String = {
-    if (game.isWin) game.winnerMark() + Communication.messages('win)
-    else Communication.messages('draw)
-  }
   
 }
