@@ -22,22 +22,7 @@ class TConsoleSpec extends FunSpec{
       tconsole.goodbye()
       assert(tconsole.outputs.contains(Communication.messages('goodbye)) )
     }
-  
-   
-    
-    it("constructs more than one size"){
-      val gameboard2 = new GameBoard(4)
-      val game2 = new Game(gameboard2.board)
-      val boardString = tconsole.construct(gameboard2.board)
-      println("here" + gameboard2.board.size)
-      println(boardString)
-      val board = (1 to 16).toArray map { x => x.toString }
-      var result = board(0) + "  | " + board(1) + "  | " + board(2) + "  | " + board(3) + "\n" + 
-                board(4) + "  | " + board(5) + "  | " + board(6) + "  | " + board(7) + "\n" + 
-                board(8) + "  | " + board(9) + " | " + board(10) + " | " + board(11) + "\n" + 
-                board(12) + " | " + board(13) + " | " + board(14) + " | " + board(15) + "\n"  
-      assert(tconsole.construct(gameboard2.board)== result)
-    }
+ 
      it("displays a formatted board") {
       val gameboard = new GameBoard(3)
       val game = new Game(gameboard.board)
@@ -47,8 +32,7 @@ class TConsoleSpec extends FunSpec{
                                        board(3) + " | " + board(4) + " | " + board(5) + "\n" +
                                        board(6) + " | " + board(7) + " | " + board(8) + "\n"))
     }
-    
-    
+       
     it("prompts player and reads in a cell number for move selection"){
       tconsole.input = 1.toString()
       val availableCells = List("1","2","3","4","5","6","7","8","9")
