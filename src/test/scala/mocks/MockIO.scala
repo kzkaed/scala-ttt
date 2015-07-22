@@ -12,6 +12,7 @@ trait MockIO extends OutputInput {
   
   def prepare(): Unit 
   def displayBoard(board: Array[String]): Unit
+  def construct(board: Array[String]): String
   def goodbye(): Unit
   def readCellNumber(availableCells: List[String]): String
   

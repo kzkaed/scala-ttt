@@ -30,6 +30,10 @@ class MockUserInterface extends UserInterface {
     cellNumberCalled = true
     cellSelection
   }
+   
+   def construct(board: Array[String]): String = {
+     ""
+   }
   
   //expectations
   def isPrepareCalled(): Boolean = {

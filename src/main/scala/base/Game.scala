@@ -87,10 +87,5 @@ class Game(var board: Array[String]) extends GameRules {
    def winSize(): Int = {
      scala.math.sqrt(boardSize).toInt
    }
-   
-  
-  
-   
-  
-     
+    
 }
