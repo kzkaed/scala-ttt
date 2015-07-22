@@ -22,5 +22,7 @@ class CLInterfacePresenter {
     if (game.isWin) game.winnerMark() + Communication.messages('win)
     else Communication.messages('draw)
   }
+   
+   
   
 }

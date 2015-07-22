@@ -4,6 +4,7 @@ import base._
 
 class CLInterface extends UserInterface with OutputInput {
   val presenter = new CLInterfacePresenter()
+  val validator = new Validator()
    
   def prepare(): Unit = {
     print(Communication.messages('welcome))
@@ -15,7 +16,7 @@ class CLInterface extends UserInterface with OutputInput {
     
   def readCellNumber(availableCells: List[String]): String = {
     askForCellNumber()
-    validate(readLine(), availableCells)   
+    validate(availableCells)
   }
   
   def displayGameResult(playerMark1: String, playerMark2: String, game: GameRules): Unit = {
@@ -29,20 +30,18 @@ class CLInterface extends UserInterface with OutputInput {
   private def askForCellNumber() = { 
     print(Communication.messages('enter)) 
   }
+   
+  def validate(availableCells: List[String]):String = {
+    var cell = validator.validate(readLine(), availableCells)  
+    if (cell == "invalid"){
+      cell = askForCellNumberAgain(availableCells: List[String])
+    }
+    cell
+  }
   
   private def askForCellNumberAgain(availableCells: List[String]) = {
     print(Communication.messages('incorrect))
     readCellNumber(availableCells: List[String])   
   }
-  
-  private def validate(cell: String, availableCells: List[String]):String = {
-    if(isValid(cell,availableCells)) cell
-    else askForCellNumberAgain(availableCells: List[String])  
-  }
-  
-  private def isValid(cell: String, availableCells: List[String]): Boolean = {
-    availableCells.contains(cell)
-  }
-  
   
 }

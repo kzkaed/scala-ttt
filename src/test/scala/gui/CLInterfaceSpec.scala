@@ -18,19 +18,14 @@ class CLInterfaceSpec extends FunSpec{
       assert(cli.outputs.contains(Communication.messages('welcome)) )
     }
     
-    it("displays goodbye") {
-      cli.goodbye()
-      assert(cli.outputs.contains(Communication.messages('goodbye)) )
-    }
- 
-     it("displays a formatted board") {
-       val gameboard = new GameBoard(3)
-       val game = new Game(gameboard.board)
-       cli.displayBoard(gameboard.board)
-       val board = (1 to 9).toArray map { x => x.toString }
-       assert(cli.outputs.contains(board(0) + " | " + board(1) + " | " + board(2) + "\n" +
-                                   board(3) + " | " + board(4) + " | " + board(5) + "\n" +
-                                   board(6) + " | " + board(7) + " | " + board(8) + "\n"))
+    it("displays a formatted board") {
+      val gameboard = new GameBoard(3)
+      val game = new Game(gameboard.board)
+      cli.displayBoard(gameboard.board)
+      val board = (1 to 9).toArray map { x => x.toString }
+      assert(cli.outputs.contains(board(0) + " | " + board(1) + " | " + board(2) + "\n" +
+                                  board(3) + " | " + board(4) + " | " + board(5) + "\n" +
+                                  board(6) + " | " + board(7) + " | " + board(8) + "\n"))
      }
        
      it("prompts player and reads in a cell number for move selection"){
@@ -47,6 +42,13 @@ class CLInterfaceSpec extends FunSpec{
        cli.displayGameResult("x", "o", game2)
        assert(cli.outputs.contains("x" + Communication.messages('win)))
      }
+     
+     it("displays goodbye") {
+      cli.goodbye()
+      assert(cli.outputs.contains(Communication.messages('goodbye)) )
+    }
+     
+  
 
   }
 }
