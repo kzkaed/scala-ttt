@@ -1,10 +1,9 @@
 package ai
 
 import base._
-import gui._
+import users.UserInterface
 import players._
 import mocks._
-
 import org.scalatest._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner

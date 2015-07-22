@@ -1,8 +1,9 @@
 package base
 
 import mocks._
-import gui._
+import users._
 import players._
+
 import org.scalatest._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner

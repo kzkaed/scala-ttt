@@ -1,4 +1,4 @@
-package gui
+package users
 
 object Communication {
   val messages = Map ('welcome   -> "Welcome to Scala Tic Tac Toe",

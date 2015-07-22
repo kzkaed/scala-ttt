@@ -1,4 +1,4 @@
-package gui
+package users
 import base._
 class CLInterfacePresenter {
   

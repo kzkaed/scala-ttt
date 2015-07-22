@@ -1,6 +1,6 @@
 package players
 import base.GameRules
-import gui._
+import users._
 
 class Human (var playerMark: String, userInterface: UserInterface) extends Player {
   

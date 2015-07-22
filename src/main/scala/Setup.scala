@@ -1,6 +1,6 @@
 import players._
 import ai._
-import gui._  
+import users._
 import base._
 
 class Setup {

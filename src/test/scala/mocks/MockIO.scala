@@ -1,5 +1,5 @@
 package mocks
-import gui._
+import users._
 
 trait MockIO extends OutputInput {
   var outputs: Seq[String] = Seq()

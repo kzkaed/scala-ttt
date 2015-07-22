@@ -1,5 +1,5 @@
 package mocks
-import gui.UserInterface
+import users._
 import base._
 
 class MockUserInterface extends UserInterface {

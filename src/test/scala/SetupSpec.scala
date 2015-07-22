@@ -1,7 +1,8 @@
 import players._
 import ai._
-import gui._  
+import users._
 import base._
+
 import org.scalatest._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner

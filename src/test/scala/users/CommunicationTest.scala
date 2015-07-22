@@ -1,4 +1,4 @@
-package gui
+package users
 
 import org.scalatest._
 import org.junit.runner.RunWith

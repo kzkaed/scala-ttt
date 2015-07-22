@@ -1,8 +1,7 @@
 import players._
 import ai._
-import gui._
+import users._
 import base._
-
 
 object Main { 
   def main(args: Array[String]): Unit = {

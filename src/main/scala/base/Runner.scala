@@ -1,6 +1,6 @@
 package base
 
-import gui._
+import users._
 import players._
 
 class Runner(val game: GameRules, 

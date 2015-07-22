@@ -1,6 +1,5 @@
 package base
 
-
 trait GameRules {
 
   def board(): Array[String]

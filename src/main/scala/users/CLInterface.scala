@@ -1,4 +1,4 @@
-package gui
+package users
 
 import base._
 
@@ -39,7 +39,7 @@ class CLInterface extends UserInterface with OutputInput {
     cell
   }
   
-  private def askForCellNumberAgain(availableCells: List[String]) = {
+  def askForCellNumberAgain(availableCells: List[String]): String = {
     print(Communication.messages('incorrect))
     readCellNumber(availableCells: List[String])   
   }

@@ -1,5 +1,4 @@
-package gui
-
+package users
 
 import mocks.MockIO
 import mocks.MockGame

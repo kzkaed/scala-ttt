@@ -1,6 +1,5 @@
 package base
 
-
 class Game(var board: Array[String]) extends GameRules {
   
    def takeTurn(moveSelection: String, playerMark: String): Array[String] = {

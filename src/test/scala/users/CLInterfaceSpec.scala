@@ -1,11 +1,11 @@
-package gui
+package users
 
 import base._
 import mocks.MockIO
-
 import org.scalatest._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
+import org.junit._
 
 @RunWith(classOf[JUnitRunner])
 class CLInterfaceSpec extends FunSpec{
@@ -32,6 +32,7 @@ class CLInterfaceSpec extends FunSpec{
        cli.input = 1.toString()
        val availableCells = List("1","2","3","4","5","6","7","8","9")
        assert(cli.readCellNumber(availableCells) == "1")
+       assert(cli.outputs.contains(Communication.messages('enter)))
     } 
     
      it("displays game result") {
@@ -48,6 +49,13 @@ class CLInterfaceSpec extends FunSpec{
       assert(cli.outputs.contains(Communication.messages('goodbye)) )
     }
      
+    it("asks for cell number again") {
+      val availableCells = List("2","3","4","5","6","7","8","9")
+      cli.input = 2.toString()
+      cli.askForCellNumberAgain(availableCells)
+      assert(cli.outputs.contains(Communication.messages('incorrect)))
+      assert(cli.outputs.contains(Communication.messages('enter)))
+    }
   
 
   }

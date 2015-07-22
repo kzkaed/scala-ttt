@@ -1,8 +1,9 @@
-package gui
+package users
 
 import mocks.MockIO
 import mocks.MockGame
 import base._
+
 import org.scalatest._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner

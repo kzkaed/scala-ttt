@@ -14,7 +14,7 @@ libraryDependencies ++= Seq(
   "org.specs2"             %% "specs2"          % "2.4"    % "test",
   "junit"                   % "junit-dep"       % "4.10"   % "test",
   "com.novocode"            % "junit-interface" % "0.10"   % "test",
-  "org.scalamock" %% "scalamock-scalatest-support" % "3.2" % "test"
+  "org.scalamock"          %% "scalamock-scalatest-support" % "3.2.2" % "test"
 )
 
 
