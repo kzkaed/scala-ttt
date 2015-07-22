@@ -15,13 +15,11 @@ class AIIntegration extends FunSpec {
   describe("Integration Test") {
     it ("plays a game with 2 ai engines and should be a draw") {
       val userInterface = new MockUserInterface
-      val board = Array[String]("1","2","3","4","5","6","7","8","9")
-      val game = new Game(board)
+      val gameboard = new GameBoard(3)
+      val game = new Game(gameboard.board)
       val engine = new Negamax
-      val xMark = "x"
-      val oMark = "o"
-      var player1 = PlayerFactory.getPlayer("computer", xMark, engine, userInterface)
-      var player2 = PlayerFactory.getPlayer("computer", oMark, engine, userInterface)
+      var player1 = new Computer(Mark.x, engine)
+      var player2 = new Computer(Mark.o, engine)
       new Runner(game, userInterface, player1, player2).run()
       
       assert(game.isWin == false)
