@@ -12,7 +12,7 @@ class CLInterfaceSpec extends FunSpec{
   
   val cli = new CLInterface with MockIO
  
-  describe("terminal"){
+  describe("Comman Line Interface"){
     it("displays a welcome message"){
       cli.prepare()
       assert(cli.outputs.contains(Communication.messages('welcome)) )

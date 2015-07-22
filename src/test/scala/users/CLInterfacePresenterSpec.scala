@@ -48,4 +48,12 @@ class CLIPresenterSpec extends FunSpec{
     val game = new MockGame(gameboard.board)
     assert(presenter.gameResult("x", "o", game) == "x"+ Communication.messages('win))
   }
+   
+   it("prints game winner"){
+     assert(presenter.winnerResult("x") == "x"+ Communication.messages('win))  
+   }
+   
+     it("prints game draw results"){
+     assert(presenter.drawResult == Communication.messages('draw))  
+   }
 }
