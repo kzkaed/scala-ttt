@@ -53,10 +53,16 @@ class Game(var board: Array[String]) extends GameRules {
    }
     
    def diagonals(cells: List[String]) = {
-     List(cells(0), cells(4), cells(8))::
-     List(cells(2), cells(4), cells(6)):: List()
+    List( diagnol(cells.grouped(winSize(cells)).toList) , diagnol(cells.grouped(winSize(cells)).toList.reverse))
    }
    
+   @annotation.tailrec
+    private def diagnol(groupedCells: List[List[String]], result: List[String] = Nil): List[String] = {
+      if (groupedCells.isEmpty) result
+      else 
+      diagnol(groupedCells.tail.map(_.tail), result :+ groupedCells.head.head)
+    }
+ 
    def isDistinctSizeOne(groups: List[List[String]]): List[Boolean] = {
      val result = groups flatMap { group =>
        if ((group.distinct).size == 1) Seq(true)
