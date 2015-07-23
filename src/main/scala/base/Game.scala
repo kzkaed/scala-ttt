@@ -37,7 +37,7 @@ class Game(var board: Array[String]) extends GameRules {
    }
    
    def isWinAcross: Boolean = {
-     isDistinctSizeOne(rows).contains(true)
+     isDistinctSizeOne(rows(board)).contains(true)
    }
    
    def isDistinctSizeOne(groups: Iterator[Array[String]]): List[Boolean] = {
@@ -47,8 +47,8 @@ class Game(var board: Array[String]) extends GameRules {
    result.toList
    }
    
-   def rows: Iterator[Array[String]] = {
-     board.grouped(winSize)
+   def rows(b: Array[String]): Iterator[Array[String]] = {
+     b.grouped(winSize(b))
    }
    
    def isWinDown: Boolean = {
@@ -87,8 +87,8 @@ class Game(var board: Array[String]) extends GameRules {
      board.size
    }
    
-   def winSize(): Int = {
-     scala.math.sqrt(boardSize).toInt
+   def winSize(b: Array[String]): Int = {
+     scala.math.sqrt(b.size).toInt
    }
     
 }

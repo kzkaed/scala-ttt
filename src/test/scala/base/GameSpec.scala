@@ -130,7 +130,7 @@ class GameSpec extends FunSpec {
     }
 
     it("can determin row, column or diagnol win size based on board size") {
-      assert(game.winSize == 3)
+      assert(game.winSize(game.board) == 3)
     }
 
     it("can determine a win of 4 across") {
@@ -158,11 +158,14 @@ class GameSpec extends FunSpec {
     }
     
     it("makes rows from board") {
-      game.board = Array("1", "1", "1", "1", "1", "1", "1", "1", "1")
-      val b = game.rows 
-      b.foreach { row => assert(row === Array("1", "1", "1")) }
-      
+      val aboard = Array("1", "2", "3", "4", "5", "6", "7", "8", "9")
+      val b = game.rows(aboard).toList 
+      assert(b(0) === Array("1", "2", "3")) 
+      assert(b(1) === Array("4", "5", "6")) 
+      assert(b(2) === Array("7", "8", "9"))     
     }
+    
+   
 
   }
 
