@@ -37,33 +37,18 @@ class Game(var board: Array[String]) extends GameRules {
    }
    
    def isWinAcross: Boolean = {
-     isDistinctSizeOne.contains(true)
+     isDistinctSizeOne(rows).contains(true)
    }
    
-   def isWinAcrossOld: Boolean = {    
-     var result = false
-     val rows = board.grouped(winSize).toList
-     rows foreach { row => 
-       if((row.distinct).size == 1){
-         result = true
-       }   
-     }
-     result
-   }
-   
-   def isDistinctSizeOne(): List[Boolean] = {
-   val result = rows(board) flatMap { row =>
-     if ((row.distinct).size == 1) Seq(true)
+   def isDistinctSizeOne(groups: Iterator[Array[String]]): List[Boolean] = {
+   val result = groups flatMap { group =>
+     if ((group.distinct).size == 1) Seq(true)
      else Seq(false)}
    result.toList
    }
    
-   def rows(b: Array[String]): Iterator[Array[String]] = {
-     b.grouped(winSize)
-   }
-   
-   def rows2(b: List[Int]): Iterator[List[Int]] = {
-     b.grouped(3)
+   def rows: Iterator[Array[String]] = {
+     board.grouped(winSize)
    }
    
    def isWinDown: Boolean = {

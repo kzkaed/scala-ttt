@@ -142,30 +142,24 @@ class GameSpec extends FunSpec {
     }
 
     it("checks for uniqueness of mark in row where each row is false") {
-      game.board = Array("x", "x", "x", "o",
+      val board4 = Array("x", "x", "x", "o",
                          "5", "6", "7", "8",
                          "9", "10", "11", "12",
                          "13", "14", "15", "16")
-      assert(game.isDistinctSizeOne == List(false, false, false, false))
+      assert(game.isDistinctSizeOne(board4.grouped(4)) == List(false, false, false, false))
     }
     
     it("checks for uniqueness of mark in row where a row is true") {
-      game.board = Array("x", "x", "x", "x",
+      val board4 = Array("x", "x", "x", "x",
                          "5", "6", "7", "8",
                          "9", "10", "11", "12",
                          "13", "14", "15", "16")
-      assert(game.isDistinctSizeOne == List(true, false, false, false))
+      assert(game.isDistinctSizeOne(board4.grouped(4)) == List(true, false, false, false))
     }
     
-    it("makes rows from anysize board") {
-      val intb = List(1,2,3,4,5,6,7,8,9)
-      val b = game.rows2(intb)               
-      assert(b.toList === List(List(1, 2, 3), List(4, 5, 6), List(7, 8, 9)))
-    }
-    
-     it("makes rows from board") {
+    it("makes rows from board") {
       game.board = Array("1", "1", "1", "1", "1", "1", "1", "1", "1")
-      val b = game.rows(game.board) 
+      val b = game.rows 
       b.foreach { row => assert(row === Array("1", "1", "1")) }
       
     }
