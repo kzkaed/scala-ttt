@@ -160,7 +160,7 @@ class GameSpec extends FunSpec {
     
      it("makes diaganols") {
       val aboard = List("1", "2", "3", "4", "5", "6", "7", "8", "9")
-      val b = game.diaganols(aboard).toList 
+      val b = game.diagonals(aboard).toList 
       assert(b(0) === Array("1", "5", "9")) 
       assert(b(1) === Array("3", "5", "7"))    
     }
