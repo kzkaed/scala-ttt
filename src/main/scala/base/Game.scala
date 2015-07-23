@@ -32,41 +32,35 @@ class Game(var board: Array[String]) extends GameRules {
      board(cell.toInt - 1) = cell
    }
    
-   def clearBoard(): Unit = {  
-     board = ((1 to boardSize) map(_.toString)).toArray
-   }
-   
    def isWinAcross: Boolean = {
-     isDistinctSizeOne(rows(board)).contains(true)
+     isDistinctSizeOne(rows(board.toList)).contains(true)
    }
    
-   def isDistinctSizeOne(groups: List[Array[String]]): List[Boolean] = {
+   def isDistinctSizeOne(groups: List[List[String]]): List[Boolean] = {
    val result = groups flatMap { group =>
      if ((group.distinct).size == 1) Seq(true)
      else Seq(false)}
    result.toList
    }
    
-   def rows(b: Array[String]): List[Array[String]] = {
+   def rows(b: List[String]): List[List[String]] = {
      b.grouped(winSize(b)).toList
    }
    
    def isWinDown: Boolean = {   
-    isDistinctSizeOne(columns(board)).contains(true)
+    isDistinctSizeOne(columns(board.toList)).contains(true)
    }
    
-   def columns(b: Array[String]) = {
-     Array(b(0), b(3), b(6))::
-     Array(b(1), b(4), b(7))::
-     Array(b(2), b(5), b(8)):: List()
+   def columns(b: List[String]): List[List[String]] = {
+     b.grouped(winSize(b)).toList.transpose
    }
-   
-   def diaganols(b: Array[String]) = {
-     Array(b(0), b(4), b(8))::
-     Array(b(2), b(4), b(6)):: List()
+    
+   def diaganols(b: List[String]) = {
+     List(b(0), b(4), b(8))::
+     List(b(2), b(4), b(6)):: List()
    }
    def isWinDiagonal: Boolean = {
-    isDistinctSizeOne(diaganols(board)).contains(true)
+    isDistinctSizeOne(diaganols(board.toList)).contains(true)
    }  
    
    private def getNumber (moveSelection: String): Int = {
@@ -89,11 +83,7 @@ class Game(var board: Array[String]) extends GameRules {
      board.toSet
    }
    
-   def boardSize(): Int = {
-     board.size
-   }
-   
-   def winSize(b: Array[String]): Int = {
+   def winSize(b: List[String]): Int = {
      scala.math.sqrt(b.size).toInt
    }
     

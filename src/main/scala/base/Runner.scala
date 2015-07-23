@@ -23,13 +23,13 @@ class Runner(val game: GameRules,
   
   def play(): Unit =  {
     makeMove(player1)
-    if (!game.isEnd) {    
+    if (!game.isEnd) {  
       makeMove(player2)  
     }
   }
  
   def makeMove(player: Player) = {
-    game.takeTurn(player.selectMove(game), player.playerMark())
+    game.takeTurn(player.selectMove(game), player.playerMark()) 
     displayCurrentBoard()
   }
 

@@ -96,16 +96,6 @@ class GameSpec extends FunSpec {
       assert(game.isWinDiagonal == true)
     }
 
-    it("clears the board") {
-      game.board = Array("x", "o", "x",
-                         "o", "x", "o",
-                         "o", "x", "x")
-      game.clearBoard()
-      assert(game.board === Array("1", "2", "3",
-                                  "4", "5", "6",
-                                  "7", "8", "9"))
-    }
-
     it("gets a winner mark on win") {
       game.board = Array("x", "o", "x",
                          "o", "x", "o",
@@ -124,13 +114,8 @@ class GameSpec extends FunSpec {
                                   "7", "8", "9"))
     }
 
-    it("has board size") {
-      val size = game.boardSize()
-      assert(size == 9)
-    }
-
     it("can determin row, column or diagnol win size based on board size") {
-      assert(game.winSize(game.board) == 3)
+      assert(game.winSize(game.board.toList) == 3)
     }
 
     it("can determine a win of 4 across") {
@@ -142,7 +127,7 @@ class GameSpec extends FunSpec {
     }
 
     it("checks for uniqueness of mark in row where each row is false") {
-      val board4 = Array("x", "x", "x", "o",
+      val board4 = List("x", "x", "x", "o",
                          "5", "6", "7", "8",
                          "9", "10", "11", "12",
                          "13", "14", "15", "16")
@@ -150,7 +135,7 @@ class GameSpec extends FunSpec {
     }
     
     it("checks for uniqueness of mark in row where a row is true") {
-      val board4 = Array("x", "x", "x", "x",
+      val board4 = List("x", "x", "x", "x",
                          "5", "6", "7", "8",
                          "9", "10", "11", "12",
                          "13", "14", "15", "16")
@@ -158,7 +143,7 @@ class GameSpec extends FunSpec {
     }
     
     it("makes rows from board") {
-      val aboard = Array("1", "2", "3", "4", "5", "6", "7", "8", "9")
+      val aboard = List("1", "2", "3", "4", "5", "6", "7", "8", "9")
       val b = game.rows(aboard).toList 
       assert(b(0) === Array("1", "2", "3")) 
       assert(b(1) === Array("4", "5", "6")) 
@@ -166,7 +151,7 @@ class GameSpec extends FunSpec {
     }
     
     it("makes columns") {
-      val aboard = Array("1", "2", "3", "4", "5", "6", "7", "8", "9")
+      val aboard = List("1", "2", "3", "4", "5", "6", "7", "8", "9")
       val b = game.columns(aboard).toList 
       assert(b(0) === Array("1", "4", "7")) 
       assert(b(1) === Array("2", "5", "8")) 
@@ -174,15 +159,11 @@ class GameSpec extends FunSpec {
     }
     
      it("makes diaganols") {
-      val aboard = Array("1", "2", "3", "4", "5", "6", "7", "8", "9")
+      val aboard = List("1", "2", "3", "4", "5", "6", "7", "8", "9")
       val b = game.diaganols(aboard).toList 
       assert(b(0) === Array("1", "5", "9")) 
-      assert(b(1) === Array("3", "5", "7")) 
-      
+      assert(b(1) === Array("3", "5", "7"))    
     }
     
-   
-
   }
-
 }
