@@ -40,27 +40,33 @@ class Game(var board: Array[String]) extends GameRules {
      isDistinctSizeOne(rows(board)).contains(true)
    }
    
-   def isDistinctSizeOne(groups: Iterator[Array[String]]): List[Boolean] = {
+   def isDistinctSizeOne(groups: List[Array[String]]): List[Boolean] = {
    val result = groups flatMap { group =>
      if ((group.distinct).size == 1) Seq(true)
      else Seq(false)}
    result.toList
    }
    
-   def rows(b: Array[String]): Iterator[Array[String]] = {
-     b.grouped(winSize(b))
+   def rows(b: Array[String]): List[Array[String]] = {
+     b.grouped(winSize(b)).toList
    }
    
-   def isWinDown: Boolean = {
-    
-     (List(board(0), board(3),board(6)).distinct).size == 1 ||
-     (List(board(1), board(4),board(7)).distinct).size == 1 ||
-     (List(board(2), board(5),board(8)).distinct).size == 1
+   def isWinDown: Boolean = {   
+    isDistinctSizeOne(columns(board)).contains(true)
    }
    
+   def columns(b: Array[String]) = {
+     Array(b(0), b(3), b(6))::
+     Array(b(1), b(4), b(7))::
+     Array(b(2), b(5), b(8)):: List()
+   }
+   
+   def diaganols(b: Array[String]) = {
+     Array(b(0), b(4), b(8))::
+     Array(b(2), b(4), b(6)):: List()
+   }
    def isWinDiagonal: Boolean = {
-    (List(board(0), board(4),board(8)).distinct).size == 1 ||
-    (List(board(2), board(4),board(6)).distinct).size == 1
+    isDistinctSizeOne(diaganols(board)).contains(true)
    }  
    
    private def getNumber (moveSelection: String): Int = {

@@ -146,7 +146,7 @@ class GameSpec extends FunSpec {
                          "5", "6", "7", "8",
                          "9", "10", "11", "12",
                          "13", "14", "15", "16")
-      assert(game.isDistinctSizeOne(board4.grouped(4)) == List(false, false, false, false))
+      assert(game.isDistinctSizeOne(board4.grouped(4).toList) == List(false, false, false, false))
     }
     
     it("checks for uniqueness of mark in row where a row is true") {
@@ -154,7 +154,7 @@ class GameSpec extends FunSpec {
                          "5", "6", "7", "8",
                          "9", "10", "11", "12",
                          "13", "14", "15", "16")
-      assert(game.isDistinctSizeOne(board4.grouped(4)) == List(true, false, false, false))
+      assert(game.isDistinctSizeOne(board4.grouped(4).toList) == List(true, false, false, false))
     }
     
     it("makes rows from board") {
@@ -163,6 +163,22 @@ class GameSpec extends FunSpec {
       assert(b(0) === Array("1", "2", "3")) 
       assert(b(1) === Array("4", "5", "6")) 
       assert(b(2) === Array("7", "8", "9"))     
+    }
+    
+    it("makes columns") {
+      val aboard = Array("1", "2", "3", "4", "5", "6", "7", "8", "9")
+      val b = game.columns(aboard).toList 
+      assert(b(0) === Array("1", "4", "7")) 
+      assert(b(1) === Array("2", "5", "8")) 
+      assert(b(2) === Array("3", "6", "9"))  
+    }
+    
+     it("makes diaganols") {
+      val aboard = Array("1", "2", "3", "4", "5", "6", "7", "8", "9")
+      val b = game.diaganols(aboard).toList 
+      assert(b(0) === Array("1", "5", "9")) 
+      assert(b(1) === Array("3", "5", "7")) 
+      
     }
     
    
