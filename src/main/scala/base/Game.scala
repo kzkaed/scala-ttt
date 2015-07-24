@@ -44,6 +44,13 @@ class Game(var board: Array[String]) extends GameRules {
     isDistinctSizeOne(diagonals(board.toList)).contains(true)
    } 
    
+   def isDistinctSizeOne(groups: List[List[String]]): List[Boolean] = {
+     val result = groups flatMap { group =>
+       if ((group.distinct).size == 1) Seq(true)
+       else Seq(false)}
+     result.toList
+   }
+   
    def rows(cells: List[String]): List[List[String]] = {
      cells.grouped(winSize(cells)).toList
    }
@@ -57,17 +64,18 @@ class Game(var board: Array[String]) extends GameRules {
    }
    
    @annotation.tailrec
-    private def diagnol(groupedCells: List[List[String]], result: List[String] = Nil): List[String] = {
+   final def diagnol(groupedCells: List[List[String]], result: List[String] = Nil): List[String] = {
       if (groupedCells.isEmpty) result
       else 
-      diagnol(groupedCells.tail.map(_.tail), result :+ groupedCells.head.head)
+      diagnol(getTailCellsOfGroup (groupedCells.tail), appendDiagnolCell(groupedCells, result))
     }
- 
-   def isDistinctSizeOne(groups: List[List[String]]): List[Boolean] = {
-     val result = groups flatMap { group =>
-       if ((group.distinct).size == 1) Seq(true)
-       else Seq(false)}
-     result.toList
+   
+   private def getTailCellsOfGroup (tailCells: List[List[String]]): List[List[String]] = {
+     tailCells map(_.tail)
+   }
+   
+   private def appendDiagnolCell(groupedCells: List[List[String]], result: List[String]): List[String] = {
+     result :+ groupedCells.head.head
    }
    
    def winSize(b: List[String]): Int = {
