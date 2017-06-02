@@ -1,8 +1,8 @@
-##Scala Tic Tac Toe
+## Scala Tic Tac Toe
 
 
 
-##Setup
+## Setup
 
     $ install java  (see oracle site)
     $ install scala (brew install scala or manually)
@@ -12,7 +12,7 @@
     $ cd scala-project
     $ sbt test      (compile and run tests)
 
-##To play:
+## To play:
 
 To run Human to Human game:
 
@@ -38,6 +38,6 @@ To exit sbt at prompt
 
 	> exit   
 
-##To test:
+## To test:
 
     $ sbt test
